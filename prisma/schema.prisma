@@ -1,0 +1,35 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Translation {
+  id        Int      @id @default(autoincrement())
+  group     TranslationGroup @relation(fields: [id], references: [id])
+  original  String
+  translated String
+  answers   Answer[]
+}
+
+model Answer {
+  id        Int      @id @default(autoincrement())
+  profile   Profile  @relation(fields: [id], references: [id], map: "Answer_profileId_fkey")
+  translation Translation @relation(fields: [id], references: [id], map: "Answer_translationId_fkey")
+  correct   Boolean
+}
+
+model Profile {
+  id      Int      @id @default(autoincrement())
+  name    String
+  answers Answer[]
+}
+
+model TranslationGroup {
+  id      Int      @id @default(autoincrement())
+  name    String
+  translations Translation[]
+}
