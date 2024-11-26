@@ -1,23 +1,23 @@
 scalar String
 
-type Translation = {
+type Translation {
   id: ID!
   group_id: ID!
   original: String!
   translated: String!
 }
 
-type TranslationGroup = {
-  id: string!
+type TranslationGroup {
+  id: String!
   name: String!
 }
 
-type Query = {
+type Query {
   translations(groupId: String!): [Translation]
 }
 
-type Mutation = {
+type Mutation {
   addTranslationGroup(name: String!): TranslationGroup
-  addTranslation(groupId: String!, original: String!, value: String!): Translation
-  updateTranslation(id: string!, original: String, value: String): Translation
+  addTranslation(original: String!): Translation
+  updateTranslation(id: String!, original: String, value: String): Translation
 }

@@ -1,6 +1,7 @@
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  directUrl         = env("DIRECT_URL")
 }
 
 generator client {
@@ -9,7 +10,7 @@ generator client {
 
 model Translation {
   id        Int      @id @default(autoincrement())
-  group     TranslationGroup @relation(fields: [id], references: [id])
+  classroom     Classroom @relation(fields: [id], references: [id])
   original  String
   translated String
   answers   Answer[]
@@ -19,7 +20,9 @@ model Answer {
   id        Int      @id @default(autoincrement())
   profile   Profile  @relation(fields: [id], references: [id], map: "Answer_profileId_fkey")
   translation Translation @relation(fields: [id], references: [id], map: "Answer_translationId_fkey")
-  correct   Boolean
+  value     String
+  date      DateTime
+  isCorrect Boolean
 }
 
 model Profile {
@@ -28,7 +31,7 @@ model Profile {
   answers Answer[]
 }
 
-model TranslationGroup {
+model Classroom {
   id      Int      @id @default(autoincrement())
   name    String
   translations Translation[]
