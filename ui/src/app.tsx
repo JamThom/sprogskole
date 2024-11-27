@@ -1,16 +1,16 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import DesignSystemProvider from "./design-system/provider";
 import Home from "./routes/home/home";
 
 const App = () => {
   return (
-    <ChakraProvider>
+    <DesignSystemProvider>
       <Router>
-        <Switch>
-          <Route path="/" component={Home} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
       </Router>
-    </ChakraProvider>
+    </DesignSystemProvider>
   );
 };
 
