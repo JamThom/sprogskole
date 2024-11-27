@@ -1,11 +1,11 @@
-const makeSuccessfulResponse = (data: any) => {
+export const makeSuccessfulResponse = (data: any) => {
   return {
     success: true,
     data,
   };
 };
 
-const makeErrorResponse = (error: Error) => {
+export const makeErrorResponse = (error: Error) => {
   return {
     success: false,
     error,

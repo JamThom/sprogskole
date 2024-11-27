@@ -1,4 +1,5 @@
-import { AsyncResponse } from "../../types/types";
+import { AsyncResponse, Resolver } from "../../types/types";
+import { makeErrorResponse, makeSuccessfulResponse } from "../../utils/response-helpers";
 import prisma from "../../client/client";
 import { Translate } from "@google-cloud/translate/build/src/v2";
 
@@ -19,17 +20,10 @@ const doesTranslationExist = async (original: string) => {
 };
 
 const queries = {
-  translations: async (classroomId: number) => {
-    const allTranslations = await prisma.translation.findMany({
-      where: {
-        classroom: {
-          id: classroomId,
-        },
-      },
-    });
-    return allTranslations;
+  translations: async (): AsyncResponse<any> => {
+    const translations = await prisma.translation.findMany();
+    return makeSuccessfulResponse(translations);
   }
-
 };
 
 const mutations = {
@@ -57,4 +51,4 @@ const mutations = {
 export default {
   queries,
   mutations,
-};
+} as Resolver;

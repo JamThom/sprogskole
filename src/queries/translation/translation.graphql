@@ -2,7 +2,6 @@ scalar String
 
 type Translation {
   id: ID!
-  group_id: ID!
   original: String!
   translated: String!
 }
@@ -13,7 +12,7 @@ type TranslationGroup {
 }
 
 type Query {
-  translations(groupId: String!): [Translation]
+  translations: [Translation]
 }
 
 type Mutation {
