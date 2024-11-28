@@ -13,14 +13,17 @@
     "@babel/preset-react": "^7.25.9",
     "@babel/preset-typescript": "^7.26.0",
     "@chakra-ui/react": "^3.2.1",
+    "@chakra-ui/toast": "^7.0.2",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@types/react-router-dom": "^5.3.3",
     "framer-motion": "^11.11.17",
+    "next-themes": "^0.4.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
     "react-router-dom": "^7.0.1",
     "typescript": "^5.7.2"
   },
@@ -35,6 +38,7 @@
     "globals": "^15.12.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.15.0",
-    "vite": "^6.0.1"
+    "vite": "^6.0.1",
+    "vite-tsconfig-paths": "^5.1.3"
   }
 }

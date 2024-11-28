@@ -1,11 +1,12 @@
-
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
-};
+    return (
+        <div>
+            <h1>Home</h1>
+            <Link to="/classroom/abc">Classroom</Link>
+        </div>
+    );
+}
 
 export default Home;
