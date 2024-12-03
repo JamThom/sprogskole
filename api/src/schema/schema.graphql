@@ -4,14 +4,13 @@ type Translation {
   id: ID!
   original: String!
   translated: String!
-  classroomId: [Classroom]
+  classroomId: String!
 }
 
 type Classroom {
   id: ID!
   name: String!
   lastUpdated: String!
-  statistics: ClassroomStatistics!
 }
 
 type Profile {

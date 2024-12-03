@@ -9,7 +9,6 @@ import {
   VStack,
   HStack,
   IconButton,
-  List,
   Text,
 } from "@chakra-ui/react";
 import { BsTrash } from "react-icons/bs";
@@ -17,10 +16,9 @@ import useTranslationsContext from "@/translations-context/translations-provider
 
 const Settings: React.FC = () => {
   const [newTerm, setNewTerm] = useState("");
-  const [newTranslation, setNewTranslation] = useState("");
   const [bulkInput, setBulkInput] = useState("");
 
-  const { allTranslations, addTranslation, removeTranslation } =
+  const { state: { allTranslations }, addTranslation, removeTranslation } =
     useTranslationsContext();
 
   const addBulkTranslations = () => {
@@ -36,7 +34,6 @@ const Settings: React.FC = () => {
   const handleAddTranslation = () => {
     addTranslation(newTerm);
     setNewTerm("");
-    setNewTranslation("");
   };
 
   return (

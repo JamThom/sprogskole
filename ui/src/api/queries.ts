@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_TRANSLATIONS = gql`
-  query GetClassrooms {
+  query classrooms {
     translations {
       id
       original
@@ -14,19 +14,14 @@ export const GET_TRANSLATIONS = gql`
 export const GET_CLASSROOMS = gql`
   query GetClassrooms {
     classrooms {
-    id
-    name
-    statistics {
-      translations
-      correctAnswers
-      incorrectAnswers
+      id
+      name
     }
-  }
   }
 `;
 
 export const GET_ANSWERS = gql`
-  query GetClassrooms {
+  query classrooms {
     answers {
       id
       translationId

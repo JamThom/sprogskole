@@ -1,43 +1,27 @@
 import useGetClassrooms from "@/api/use-get-classrooms";
 import AddClassroomModal from "./add-classroom-modal/add-classroom-modal";
-import { Heading, VStack } from "@chakra-ui/react";
+import { Heading, HStack, VStack, Spinner, Alert } from "@chakra-ui/react";
 import ClassroomsTable from "./classrooms-table/classrooms-table";
-
-const dumb = [
-  {
-    id: "1",
-    name: "Classroom 1",
-    progress: "50%",
-  },
-  {
-    id: "2",
-    name: "Classroom 2",
-    progress: "50%",
-  },
-  {
-    id: "3",
-    name: "Classroom 3",
-    progress: "50%",
-  },
-]
 
 const Home = () => {
   const classrooms = useGetClassrooms();
 
   return (
-    <VStack>
-      <Heading>Classrooms</Heading>
-      {classrooms.loading && <p>Loading...</p>}
+    <VStack width="xl">
+      <HStack width="100%" justifyContent="space-between">
+        <Heading>Classrooms</Heading>
+        <AddClassroomModal />
+      </HStack>
+      {classrooms.loading && <Spinner />}
       {classrooms.error && (
-        <div>
-          <h2>Error fetching classrooms</h2>
-        </div>
+        <Alert.Root>
+          <Alert.Title>
+            {classrooms.error.message}
+          </Alert.Title>
+        </Alert.Root>
       )}
 
-        {Array.isArray(dumb) && (
-          <ClassroomsTable classrooms={dumb} />
-        )}
-      <AddClassroomModal />
+      {Array.isArray(classrooms.data) && <ClassroomsTable classrooms={classrooms.data} />}
     </VStack>
   );
 };

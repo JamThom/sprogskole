@@ -2,7 +2,7 @@ import { AsyncResponse, Resolver } from "../../types/types";
 import prisma from "../../client/client";
 import { Answer } from "@prisma/client";
 
-const Mutations = {
+const Mutation = {
     async addAnswer (translationId: string, value: string): AsyncResponse<boolean> {
         const translation = await prisma.translation.findUnique({
             where: {
@@ -35,7 +35,7 @@ const Mutations = {
     }
 }
 
-const Queries = {
+const Query = {
     async answers (): AsyncResponse<Answer[]> {
         const answers = await prisma.answer.findMany();
         return {
@@ -46,6 +46,6 @@ const Queries = {
 }
 
 export default {
-    Queries,
-    Mutations
+    Query,
+    Mutation
   } as Resolver;

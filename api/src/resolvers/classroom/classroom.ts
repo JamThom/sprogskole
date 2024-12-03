@@ -3,14 +3,13 @@ import { makeSuccessfulResponse } from "../../utils/response-helpers";
 import prisma from "../../client/client";
 import { Classroom } from "@prisma/client";
 
-const Queries = {
-  classrooms: async (): AsyncResponse<Classroom> => {
-    const classrooms = await prisma.classroom.findMany();
-    return makeSuccessfulResponse(classrooms);
-  }
+const Query = {
+  classrooms: async () => {
+    return await prisma.classroom.findMany();
+  },
 };
 
-const Mutations = {
+const Mutation = {
   addClassroom: async (name: string): AsyncResponse<Classroom> => {
     const newClassroom = await prisma.classroom.create({
       data: {
@@ -62,8 +61,7 @@ const Classroom = {
   },
 };
 
-export default {
-  Queries,
-  Mutations,
-  Classroom
-} as Resolver;
+export default { 
+  Query,
+  Mutation
+};

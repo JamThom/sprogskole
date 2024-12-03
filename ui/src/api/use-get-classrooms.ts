@@ -6,10 +6,6 @@ const useGetClassrooms = () => {
 
     const { data, loading, error } = useQuery<Classroom[]>(GET_CLASSROOMS);
 
-    console.log({
-        data,
-        error
-    });
     return { data, loading, error };
 };
 

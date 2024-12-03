@@ -11,7 +11,7 @@
     "paths": {
       "*": ["node_modules/*"],
       "*.graphql": ["src/queries/translation/*.graphql"],
-      "src/*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*"],

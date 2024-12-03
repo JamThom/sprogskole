@@ -9,7 +9,7 @@ const Stats = () => {
   const {
     answers,
     currentLevel,
-  } = useTranslationsContext();
+  } = useTranslationsContext().state;
 
   const correctAnswers = answers.filter(({ translation, answer }) => {
     return translation === answer;

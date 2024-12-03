@@ -20,15 +20,14 @@ const doesTranslationExist = async (original: string) => {
   return existingTranslation ? true : false;
 };
 
-const Queries = {
+const Query = {
   translations: async () => {
     const translations = await prisma.translation.findMany();
-    console.log(translations);
     return translations;
   }
 };
 
-const Mutations = {
+const Mutation = {
   addTranslation: async (name: string, classrooomId: string): AsyncResponse<Translation> => {
     let translatedText;
     const translationExists = await doesTranslationExist(name);
@@ -56,6 +55,6 @@ const Mutations = {
 };
 
 export default {
-  Queries,
-  Mutations
+  Query,
+  Mutation
 } as Resolver;

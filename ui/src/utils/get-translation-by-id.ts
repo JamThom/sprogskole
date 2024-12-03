@@ -4,7 +4,7 @@ import { Translation } from "../translations-context/translations-types";
 const useGetTranslationById = () => {
   const {
     allTranslations,
-  } = useTranslationsContext();
+  } = useTranslationsContext().state;
 
   return (id: string): Translation => {
     const translation = allTranslations.find((item) => item.id === id);
