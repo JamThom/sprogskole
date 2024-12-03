@@ -13,16 +13,21 @@ export const GET_TRANSLATIONS = gql`
 
 export const GET_CLASSROOMS = gql`
   query GetClassrooms {
-    translations {
-      id
-      name
+    classrooms {
+    id
+    name
+    statistics {
+      translations
+      correctAnswers
+      incorrectAnswers
     }
+  }
   }
 `;
 
 export const GET_ANSWERS = gql`
   query GetClassrooms {
-    translations {
+    answers {
       id
       translationId
       value

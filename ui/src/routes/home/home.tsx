@@ -3,6 +3,24 @@ import AddClassroomModal from "./add-classroom-modal/add-classroom-modal";
 import { Heading, VStack } from "@chakra-ui/react";
 import ClassroomsTable from "./classrooms-table/classrooms-table";
 
+const dumb = [
+  {
+    id: "1",
+    name: "Classroom 1",
+    progress: "50%",
+  },
+  {
+    id: "2",
+    name: "Classroom 2",
+    progress: "50%",
+  },
+  {
+    id: "3",
+    name: "Classroom 3",
+    progress: "50%",
+  },
+]
+
 const Home = () => {
   const classrooms = useGetClassrooms();
 
@@ -16,8 +34,8 @@ const Home = () => {
         </div>
       )}
 
-        {Array.isArray(classrooms.data) && (
-          <ClassroomsTable classrooms={classrooms.data} />
+        {Array.isArray(dumb) && (
+          <ClassroomsTable classrooms={dumb} />
         )}
       <AddClassroomModal />
     </VStack>

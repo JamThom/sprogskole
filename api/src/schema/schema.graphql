@@ -10,6 +10,20 @@ type Translation {
 type Classroom {
   id: ID!
   name: String!
+  lastUpdated: String!
+  statistics: ClassroomStatistics!
+}
+
+type Profile {
+  id: ID!
+  name: String!
+  answers: [Answer!]!
+}
+
+type ClassroomStatistics {
+  translations: Int!
+  correctAnswers: Int!
+  incorrectAnswers: Int!
 }
 
 type Answer {

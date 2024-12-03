@@ -1,6 +1,6 @@
 import { Classroom } from "@/api/types/queries";
 import { Table } from "@chakra-ui/react";
-import { useMemo } from "react";
+import { ReactNode, useMemo } from "react";
 import {
   flexRender,
   getCoreRowModel,
@@ -19,14 +19,19 @@ const ClassroomsTable = ({ classrooms }: ClassroomsTableProps) => {
       {
         header: "Classroom Name",
         accessorKey: "name",
+        cell: ({ row, getValue }) => (
+          <Link to={`/classroom/${row.original.id}`}>
+            {getValue() as ReactNode}
+          </Link>
+        ),
       },
       {
         header: "Progress",
-        accessorKey: "progress",
+        id: "progress",
       },
       {
-        header: "Progress",
-        accessorKey: "progress",
+        header: "Last Updated",
+        accessorKey: "lastUpdated",
       },
     ];
   }, []);
@@ -56,20 +61,15 @@ const ClassroomsTable = ({ classrooms }: ClassroomsTableProps) => {
       <Table.Body>
         {table.getRowModel().rows.map((row) => {
           return (
-            <Link to={`/classroom/${row.original.id}`}>
-              <Table.Row>
-                {row.getVisibleCells().map((cell) => {
-                  return (
-                    <Table.Cell>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </Table.Cell>
-                  );
-                })}
-              </Table.Row>
-            </Link>
+            <Table.Row>
+              {row.getVisibleCells().map((cell) => {
+                return (
+                  <Table.Cell>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </Table.Cell>
+                );
+              })}
+            </Table.Row>
           );
         })}
       </Table.Body>

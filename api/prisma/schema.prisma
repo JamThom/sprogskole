@@ -29,10 +29,13 @@ model Profile {
   id      String      @id @default(uuid())
   name    String
   answers Answer[]
+  classroom Classroom @relation(fields: [id], references: [id])
 }
 
 model Classroom {
   id      String      @id @default(uuid())
   name    String
   translations Translation[]
+  profiles Profile[]
+  lastUpdated DateTime
 }
