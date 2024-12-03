@@ -8,11 +8,14 @@ import {
 import { TranslationsState } from "./translations-types";
 import reducer from "./translations-reducer";
 import useGetTranslations from "../api/use-get-translations";
+import useAddAnswer from "@/api/use-add-answer";
+import useAddTranslation from "@/api/use-add-translation";
 
-type Context = TranslationsState & {
+type Context = {
   addAnswer: (answer: string) => void;
   addTranslation: (translation: string) => void;
   removeTranslation: (translation: string) => void;
+  state: TranslationsState;
 };
 
 const context = createContext<Context | undefined>(undefined);
@@ -31,6 +34,9 @@ export const TranslationsProvider = ({ children }: PropsWithChildren) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const allTanslations = useGetTranslations();
+  const allAnswers = useGetTranslations();
+  const postAnswer = useAddAnswer();
+  const postTranslation = useAddTranslation();
 
   useEffect(() => {
     if (allTanslations.data) {
@@ -41,7 +47,17 @@ export const TranslationsProvider = ({ children }: PropsWithChildren) => {
     }
   }, [allTanslations]);
 
-  const addAnswer = (answer: string) => {
+  useEffect(() => {
+    if (allAnswers.data) {
+      dispatch({
+        type: "SET_ANSWERS",
+        payload: allAnswers.data,
+      });
+    }
+  }, [allAnswers]);
+
+  const addAnswer = async (answer: string) => {
+    await postAnswer(state.currentTranslation, answer);
     dispatch({
       type: "ADD_ANSWER",
       payload: {
@@ -58,7 +74,8 @@ export const TranslationsProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  const addTranslation = (translation: string) => {
+  const addTranslation = async (translation: string) => {
+    await postTranslation(translation);
     dispatch({
       type: "ADD_TRANSLATION",
       payload: translation,
@@ -75,7 +92,7 @@ export const TranslationsProvider = ({ children }: PropsWithChildren) => {
   return (
     <context.Provider
       value={{
-        ...state,
+        state,
         addAnswer,
         addTranslation,
         removeTranslation

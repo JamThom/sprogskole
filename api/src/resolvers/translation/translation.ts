@@ -2,6 +2,7 @@ import { AsyncResponse, Resolver } from "../../types/types";
 import { makeErrorResponse, makeSuccessfulResponse } from "../../utils/response-helpers";
 import prisma from "../../client/client";
 import { Translate } from "@google-cloud/translate/build/src/v2";
+import { Translation } from "@prisma/client";
 
 const translateApi = new Translate();
 
@@ -20,14 +21,15 @@ const doesTranslationExist = async (original: string) => {
 };
 
 const queries = {
-  translations: async (): AsyncResponse<any> => {
+  translations: async () => {
     const translations = await prisma.translation.findMany();
-    return makeSuccessfulResponse(translations);
+    console.log(translations);
+    return translations;
   }
 };
 
 const mutations = {
-  addTranslation: async (name: string): AsyncResponse<any> => {
+  addTranslation: async (name: string, classrooomId: string): AsyncResponse<Translation> => {
     let translatedText;
     const translationExists = await doesTranslationExist(name);
     if (translationExists) {
@@ -42,13 +44,18 @@ const mutations = {
       data: {
         original: name,
         translated: translatedText,
+        classroom: {
+          connect: {
+            id: classrooomId
+          }
+        }
       },
     });
-    return makeSuccessfulResponse(newTranslation);
+    return newTranslation;
   },
 };
 
 export default {
   queries,
   mutations,
-} as Resolver;
+};

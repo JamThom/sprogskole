@@ -6,7 +6,7 @@ import Stats from "./stats/stats";
 
 const Classroom = () => {
   const { currentTranslation, possibleTranslations, translationsLoaded } =
-    useTranslationsContext();
+    useTranslationsContext().state;
 
   const getTranslationById = useGetTranslationById();
 

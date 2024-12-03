@@ -25,4 +25,5 @@ export type TranslationsAction =
     | { type: 'INCREMENT_LEVEL' }
     | { type: 'ADD_ANSWER'; payload: Answer }
     | { type: 'ADD_TRANSLATION'; payload: string }
-    | { type: 'REMOVE_TRANSLATION'; payload: string };
+    | { type: 'REMOVE_TRANSLATION'; payload: string }
+    | { type: 'SET_ANSWERS'; payload: Answer[] };

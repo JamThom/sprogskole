@@ -1,8 +1,9 @@
 import { AsyncResponse, Resolver } from "../../types/types";
 import prisma from "../../client/client";
+import { Answer } from "@prisma/client";
 
 const mutations = {
-    async addAnswer (translationId: number, value: string): AsyncResponse<boolean> {
+    async addAnswer (translationId: string, value: string): AsyncResponse<boolean> {
         const translation = await prisma.translation.findUnique({
             where: {
                 id: translationId,
@@ -35,7 +36,7 @@ const mutations = {
 }
 
 const queries = {
-    async getAnswers (): AsyncResponse<any> {
+    async answers (): AsyncResponse<Answer[]> {
         const answers = await prisma.answer.findMany();
         return {
             success: true,

@@ -1,0 +1,46 @@
+scalar String
+
+type Translation {
+  id: ID!
+  original: String!
+  translated: String!
+  classroomId: [Classroom]
+}
+
+type Classroom {
+  id: ID!
+  name: String!
+}
+
+type Answer {
+  id: ID!
+  translationId: ID!
+  value: String!
+  isCorrect: Boolean!
+  date: String!
+}
+
+type TranslationGroup {
+  id: String!
+  name: String!
+}
+
+type Query {
+  translations: [Translation]
+  answers: [Answer]
+  classrooms: [Classroom]
+}
+
+type Mutation {
+  addTranslationGroup(name: String!): TranslationGroup
+  addTranslation(original: String!, classroomId: String!): Translation
+  updateTranslation(id: String!, value: String): Translation
+  addAnswer(translationId: ID!, value: String!): MutationResponse
+  addClassroom(name: String!): Classroom
+}
+
+type MutationResponse {
+  success: Boolean!
+  data: Boolean
+  error: String
+}

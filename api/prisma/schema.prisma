@@ -9,7 +9,7 @@ generator client {
 }
 
 model Translation {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(uuid())
   classroom     Classroom @relation(fields: [id], references: [id])
   original  String
   translated String
@@ -17,7 +17,7 @@ model Translation {
 }
 
 model Answer {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(uuid())
   profile   Profile  @relation(fields: [id], references: [id], map: "Answer_profileId_fkey")
   translation Translation @relation(fields: [id], references: [id], map: "Answer_translationId_fkey")
   value     String
@@ -26,13 +26,13 @@ model Answer {
 }
 
 model Profile {
-  id      Int      @id @default(autoincrement())
+  id      String      @id @default(uuid())
   name    String
   answers Answer[]
 }
 
 model Classroom {
-  id      Int      @id @default(autoincrement())
+  id      String      @id @default(uuid())
   name    String
   translations Translation[]
 }

@@ -16,6 +16,11 @@ const generatePossibleTranslations = (allTranslations: TranslationsState['allTra
 const reducer = (state: TranslationsState, action: TranslationsAction): TranslationsState => {
   let currentTranslation;
   switch (action.type) {
+    case 'SET_ANSWERS':
+      return {
+        ...state,
+        answers: action.payload,
+      };
     case 'ADD_TRANSLATION':
       return {
         ...state,

@@ -12,7 +12,7 @@ type WordButtonProps = {
 
 const WordButton = ({ translationId }: WordButtonProps) => {
   const {
-    currentTranslation,
+    state: { currentTranslation },
     addAnswer,
   } = useTranslationsContext();
 
