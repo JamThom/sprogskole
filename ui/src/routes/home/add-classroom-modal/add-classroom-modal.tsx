@@ -47,7 +47,7 @@ const AddClassroomModal = () => {
           <Button
             colorScheme="blue"
             onClick={() => {
-              addClassroom("Classroom Name");
+              addClassroom({ name: "Classroom Name" });
               onClose();
             }}
           >

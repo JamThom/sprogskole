@@ -27,7 +27,7 @@ const WordButton = ({ questionId }: WordButtonProps) => {
       toaster.create({
         title: "Incorrect",
         description: `Correct answer is: ${
-          getQuestionById(currentQuestion).translated
+          getQuestionById(currentQuestion).correctAnswer
         }`,
       });
     }
@@ -37,12 +37,12 @@ const WordButton = ({ questionId }: WordButtonProps) => {
   return (
     <MotionButton
       color="white"
-      key={getQuestionById(questionId).translated}
+      key={getQuestionById(questionId).correctAnswer}
       onClick={handleAnswerClick}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
-      {getQuestionById(questionId).translated}
+      {getQuestionById(questionId).correctAnswer}
     </MotionButton>
   );
 };

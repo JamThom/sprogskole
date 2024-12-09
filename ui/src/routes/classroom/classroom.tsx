@@ -15,7 +15,9 @@ const Classroom = () => {
     const possibleAnswers = new Set([currentQuestionObj]);
     while (possibleAnswers.size < 9) {
       const randomQuestion = questions[Math.floor(Math.random() * questions.length)].id;
-      possibleAnswers.add(randomQuestion);
+      possibleAnswers.add(
+        getQuestionById(randomQuestion)
+      );
     }
     return Array.from(possibleAnswers);
   }, [currentQuestion, questions]);
@@ -28,7 +30,7 @@ const Classroom = () => {
       </Heading>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
         {possibleAnswers.map((item) => (
-          <WordButton questionId={item} key={item} />
+          <WordButton questionId={item.id} key={item.id} />
         ))}
       </Grid>
     </>

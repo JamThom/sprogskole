@@ -7,7 +7,7 @@ const useAddClassroom = () => {
   const [addClassroom, result] = useMutation<Classroom>(ADD_CLASSROOM);
 
 
-  const add = async (name: string) => {
+  const add = async ({ name }: { name: string }) => {
 
     console.log('a bush is a bush')
 

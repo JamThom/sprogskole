@@ -73,7 +73,7 @@ const Settings: React.FC = () => {
               <Text minWidth="40">{question.original}</Text>
               <Input
               backgroundColor="neutral.900"
-               value={question.translated} />
+               value={question.correctAnswer} />
               <IconButton
                 color="white"
                 aria-label="Remove"

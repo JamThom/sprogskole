@@ -7,7 +7,6 @@ import {
 import { QuestionsState } from "./questions-types";
 import reducer from "./questions-reducer";
 import useAddAnswer from "@/api/use-add-answer";
-import useAddQuestion from "@/api/use-add-question";
 import useGetAnswers from "@/api/use-get-answers";
 import useGetQuestions from "@/api/use-get-questions";
 import { Answer, Question } from "@/api/query-types";
@@ -18,7 +17,6 @@ type Context = {
   answers: Answer[];
   questions: Question[];
   addAnswer: (answer: string) => void;
-  addQuestion: (question: string) => void;
   removeQuestion: (question: string) => void;
 };
 
@@ -31,26 +29,17 @@ const initialState: QuestionsState = {
 export const QuestionsProvider = ({ children }: PropsWithChildren) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const postAnswer = useAddAnswer();
-  const postQuestion = useAddQuestion();
 
   const addAnswer = async (answer: string) => {
-    await postAnswer(state.currentQuestion, answer);
+    const { data } = await postAnswer({
+      value: answer,
+      questionId: state.currentQuestion,
+    });
     dispatch({
       type: "ADD_ANSWER",
-      payload: {
-        question: state.currentQuestion,
-        answer
-      },
+      payload: data as Answer,
     });
   };
-
-  const addQuestion = async (question: string) => {
-    await postQuestion(question);
-    dispatch({
-      type: "ADD_QUESTION",
-      payload: question,
-    });
-  }
 
   const removeQuestion = (question: string) => {
     dispatch({
@@ -70,7 +59,6 @@ export const QuestionsProvider = ({ children }: PropsWithChildren) => {
         answers: (answers??[]) as Answer[],
         questions: (questions??[]) as Question[],
         addAnswer,
-        addQuestion,
         removeQuestion
       }}
     >

@@ -3,15 +3,15 @@ import {
   ProgressCircleRing,
   ProgressCircleRoot,
 } from "@/components/ui/progress-circle";
-import useTranslationsContext from "@/questions-context/questions-provider";
+import useQuestionsContext from "@/questions-context/questions-provider";
 
 const Stats = () => {
   const {
     answers,
-  } = useTranslationsContext();
+  } = useQuestionsContext();
 
-  const correctAnswers = answers.filter(({ question, answer }) => {
-    return question === answer;
+  const correctAnswers = answers.filter(({ isCorrect }) => {
+    return isCorrect;
   }).length;
 
   const percentCorrect =
