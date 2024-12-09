@@ -1,25 +1,25 @@
 import { Button } from "@chakra-ui/react";
-import useTranslationsContext from "../../../translations-context/translations-provider";
-import useGetTranslationById from "../../../utils/get-translation-by-id";
+import useQuestionsContext from "../../../questions-context/questions-provider";
+import useGetQuestionById from "../../../utils/get-question-by-id";
 import { motion } from "framer-motion";
 import { toaster } from "@/components/ui/toaster";
 
 const MotionButton = motion(Button);
 
 type WordButtonProps = {
-  translationId: string;
+  questionId: string;
 };
 
-const WordButton = ({ translationId }: WordButtonProps) => {
+const WordButton = ({ questionId }: WordButtonProps) => {
   const {
-    state: { currentTranslation },
+    currentQuestion,
     addAnswer,
-  } = useTranslationsContext();
+  } = useQuestionsContext();
 
-  const getTranslationById = useGetTranslationById();
+  const getQuestionById = useGetQuestionById();
 
   const handleAnswerClick = () => {
-    if (translationId === currentTranslation) {
+    if (questionId === currentQuestion) {
       toaster.success({
         title: "Correct!",
       });
@@ -27,22 +27,22 @@ const WordButton = ({ translationId }: WordButtonProps) => {
       toaster.create({
         title: "Incorrect",
         description: `Correct answer is: ${
-          getTranslationById(currentTranslation).translated
+          getQuestionById(currentQuestion).translated
         }`,
       });
     }
-    addAnswer(translationId);
+    addAnswer(questionId);
   };
 
   return (
     <MotionButton
       color="white"
-      key={getTranslationById(translationId).translated}
+      key={getQuestionById(questionId).translated}
       onClick={handleAnswerClick}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
-      {getTranslationById(translationId).translated}
+      {getQuestionById(questionId).translated}
     </MotionButton>
   );
 };

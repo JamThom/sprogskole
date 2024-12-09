@@ -1,4 +1,4 @@
-import { AsyncResponse, Resolver } from "../../types/types";
+import { AsyncResponse } from "../../types/types";
 import { makeSuccessfulResponse } from "../../utils/response-helpers";
 import prisma from "../../client/client";
 import { Classroom } from "@prisma/client";
@@ -10,7 +10,7 @@ const Query = {
 };
 
 const Mutation = {
-  addClassroom: async (name: string): AsyncResponse<Classroom> => {
+  addClassroom: async ({ name }: { name: string }): AsyncResponse<Classroom> => {
     const newClassroom = await prisma.classroom.create({
       data: {
         name,
@@ -22,8 +22,8 @@ const Mutation = {
 };
 
 const Classroom = {
-  translations: async (parent: Classroom) => {
-    return await prisma.translation.findMany({
+  questions: async (parent: Classroom) => {
+    return await prisma.question.findMany({
       where: {
         classroom: {
           id: parent.id
@@ -32,7 +32,7 @@ const Classroom = {
     });
   },
   statistics: async (parent: Classroom) => {
-    const translations = await prisma.translation.findMany({
+    const questions = await prisma.question.findMany({
       where: {
         classroom: {
           id: parent.id
@@ -42,7 +42,7 @@ const Classroom = {
 
     const answers = await prisma.answer.findMany({
       where: {
-        translation: {
+        question: {
           classroom: {
             id: parent.id
           },
@@ -54,7 +54,7 @@ const Classroom = {
     const incorrectAnswers = answers.length - correctAnswers;
 
     return {
-      translations: translations.length,
+      questions: questions.length,
       correctAnswers,
       incorrectAnswers,
     };

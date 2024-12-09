@@ -3,7 +3,7 @@
  * Client
 **/
 
-import * as runtime from '../../../api/node_modules/@prisma/client/runtime/library.js';
+import * as runtime from '@prisma/client/runtime/library.js';
 import $Types = runtime.Types // general types
 import $Public = runtime.Types.Public
 import $Utils = runtime.Types.Utils
@@ -14,10 +14,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Translation
+ * Model Question
  * 
  */
-export type Translation = $Result.DefaultSelection<Prisma.$TranslationPayload>
+export type Question = $Result.DefaultSelection<Prisma.$QuestionPayload>
 /**
  * Model Answer
  * 
@@ -41,8 +41,8 @@ export type Classroom = $Result.DefaultSelection<Prisma.$ClassroomPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Translations
- * const translations = await prisma.translation.findMany()
+ * // Fetch zero or more Questions
+ * const questions = await prisma.question.findMany()
  * ```
  *
  * 
@@ -62,8 +62,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Translations
-   * const translations = await prisma.translation.findMany()
+   * // Fetch zero or more Questions
+   * const questions = await prisma.question.findMany()
    * ```
    *
    * 
@@ -158,14 +158,14 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb, ExtArgs>
 
       /**
-   * `prisma.translation`: Exposes CRUD operations for the **Translation** model.
+   * `prisma.question`: Exposes CRUD operations for the **Question** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Translations
-    * const translations = await prisma.translation.findMany()
+    * // Fetch zero or more Questions
+    * const questions = await prisma.question.findMany()
     * ```
     */
-  get translation(): Prisma.TranslationDelegate<ExtArgs>;
+  get question(): Prisma.QuestionDelegate<ExtArgs>;
 
   /**
    * `prisma.answer`: Exposes CRUD operations for the **Answer** model.
@@ -637,7 +637,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Translation: 'Translation',
+    Question: 'Question',
     Answer: 'Answer',
     Profile: 'Profile',
     Classroom: 'Classroom'
@@ -656,77 +656,77 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "translation" | "answer" | "profile" | "classroom"
+      modelProps: "question" | "answer" | "profile" | "classroom"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Translation: {
-        payload: Prisma.$TranslationPayload<ExtArgs>
-        fields: Prisma.TranslationFieldRefs
+      Question: {
+        payload: Prisma.$QuestionPayload<ExtArgs>
+        fields: Prisma.QuestionFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.TranslationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload> | null
+            args: Prisma.QuestionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.TranslationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload>
+            args: Prisma.QuestionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload>
           }
           findFirst: {
-            args: Prisma.TranslationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload> | null
+            args: Prisma.QuestionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.TranslationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload>
+            args: Prisma.QuestionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload>
           }
           findMany: {
-            args: Prisma.TranslationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload>[]
+            args: Prisma.QuestionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload>[]
           }
           create: {
-            args: Prisma.TranslationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload>
+            args: Prisma.QuestionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload>
           }
           createMany: {
-            args: Prisma.TranslationCreateManyArgs<ExtArgs>
+            args: Prisma.QuestionCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.TranslationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload>[]
+            args: Prisma.QuestionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload>[]
           }
           delete: {
-            args: Prisma.TranslationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload>
+            args: Prisma.QuestionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload>
           }
           update: {
-            args: Prisma.TranslationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload>
+            args: Prisma.QuestionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload>
           }
           deleteMany: {
-            args: Prisma.TranslationDeleteManyArgs<ExtArgs>
+            args: Prisma.QuestionDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.TranslationUpdateManyArgs<ExtArgs>
+            args: Prisma.QuestionUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.TranslationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TranslationPayload>
+            args: Prisma.QuestionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuestionPayload>
           }
           aggregate: {
-            args: Prisma.TranslationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateTranslation>
+            args: Prisma.QuestionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateQuestion>
           }
           groupBy: {
-            args: Prisma.TranslationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<TranslationGroupByOutputType>[]
+            args: Prisma.QuestionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<QuestionGroupByOutputType>[]
           }
           count: {
-            args: Prisma.TranslationCountArgs<ExtArgs>
-            result: $Utils.Optional<TranslationCountAggregateOutputType> | number
+            args: Prisma.QuestionCountArgs<ExtArgs>
+            result: $Utils.Optional<QuestionCountAggregateOutputType> | number
           }
         }
       }
@@ -1097,32 +1097,32 @@ export namespace Prisma {
 
 
   /**
-   * Count Type TranslationCountOutputType
+   * Count Type QuestionCountOutputType
    */
 
-  export type TranslationCountOutputType = {
+  export type QuestionCountOutputType = {
     answers: number
   }
 
-  export type TranslationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    answers?: boolean | TranslationCountOutputTypeCountAnswersArgs
+  export type QuestionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    answers?: boolean | QuestionCountOutputTypeCountAnswersArgs
   }
 
   // Custom InputTypes
   /**
-   * TranslationCountOutputType without action
+   * QuestionCountOutputType without action
    */
-  export type TranslationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TranslationCountOutputType
+     * Select specific fields to fetch from the QuestionCountOutputType
      */
-    select?: TranslationCountOutputTypeSelect<ExtArgs> | null
+    select?: QuestionCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * TranslationCountOutputType without action
+   * QuestionCountOutputType without action
    */
-  export type TranslationCountOutputTypeCountAnswersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionCountOutputTypeCountAnswersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AnswerWhereInput
   }
 
@@ -1163,11 +1163,13 @@ export namespace Prisma {
    */
 
   export type ClassroomCountOutputType = {
-    translations: number
+    questions: number
+    profiles: number
   }
 
   export type ClassroomCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    translations?: boolean | ClassroomCountOutputTypeCountTranslationsArgs
+    questions?: boolean | ClassroomCountOutputTypeCountQuestionsArgs
+    profiles?: boolean | ClassroomCountOutputTypeCountProfilesArgs
   }
 
   // Custom InputTypes
@@ -1184,8 +1186,15 @@ export namespace Prisma {
   /**
    * ClassroomCountOutputType without action
    */
-  export type ClassroomCountOutputTypeCountTranslationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TranslationWhereInput
+  export type ClassroomCountOutputTypeCountQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: QuestionWhereInput
+  }
+
+  /**
+   * ClassroomCountOutputType without action
+   */
+  export type ClassroomCountOutputTypeCountProfilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileWhereInput
   }
 
 
@@ -1194,320 +1203,320 @@ export namespace Prisma {
    */
 
   /**
-   * Model Translation
+   * Model Question
    */
 
-  export type AggregateTranslation = {
-    _count: TranslationCountAggregateOutputType | null
-    _min: TranslationMinAggregateOutputType | null
-    _max: TranslationMaxAggregateOutputType | null
+  export type AggregateQuestion = {
+    _count: QuestionCountAggregateOutputType | null
+    _min: QuestionMinAggregateOutputType | null
+    _max: QuestionMaxAggregateOutputType | null
   }
 
-  export type TranslationMinAggregateOutputType = {
+  export type QuestionMinAggregateOutputType = {
     id: string | null
-    original: string | null
-    translated: string | null
+    question: string | null
+    correctAnswer: string | null
   }
 
-  export type TranslationMaxAggregateOutputType = {
+  export type QuestionMaxAggregateOutputType = {
     id: string | null
-    original: string | null
-    translated: string | null
+    question: string | null
+    correctAnswer: string | null
   }
 
-  export type TranslationCountAggregateOutputType = {
+  export type QuestionCountAggregateOutputType = {
     id: number
-    original: number
-    translated: number
+    question: number
+    correctAnswer: number
     _all: number
   }
 
 
-  export type TranslationMinAggregateInputType = {
+  export type QuestionMinAggregateInputType = {
     id?: true
-    original?: true
-    translated?: true
+    question?: true
+    correctAnswer?: true
   }
 
-  export type TranslationMaxAggregateInputType = {
+  export type QuestionMaxAggregateInputType = {
     id?: true
-    original?: true
-    translated?: true
+    question?: true
+    correctAnswer?: true
   }
 
-  export type TranslationCountAggregateInputType = {
+  export type QuestionCountAggregateInputType = {
     id?: true
-    original?: true
-    translated?: true
+    question?: true
+    correctAnswer?: true
     _all?: true
   }
 
-  export type TranslationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Translation to aggregate.
+     * Filter which Question to aggregate.
      */
-    where?: TranslationWhereInput
+    where?: QuestionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Translations to fetch.
+     * Determine the order of Questions to fetch.
      */
-    orderBy?: TranslationOrderByWithRelationInput | TranslationOrderByWithRelationInput[]
+    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: TranslationWhereUniqueInput
+    cursor?: QuestionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Translations from the position of the cursor.
+     * Take `±n` Questions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Translations.
+     * Skip the first `n` Questions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Translations
+     * Count returned Questions
     **/
-    _count?: true | TranslationCountAggregateInputType
+    _count?: true | QuestionCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: TranslationMinAggregateInputType
+    _min?: QuestionMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: TranslationMaxAggregateInputType
+    _max?: QuestionMaxAggregateInputType
   }
 
-  export type GetTranslationAggregateType<T extends TranslationAggregateArgs> = {
-        [P in keyof T & keyof AggregateTranslation]: P extends '_count' | 'count'
+  export type GetQuestionAggregateType<T extends QuestionAggregateArgs> = {
+        [P in keyof T & keyof AggregateQuestion]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateTranslation[P]>
-      : GetScalarType<T[P], AggregateTranslation[P]>
+        : GetScalarType<T[P], AggregateQuestion[P]>
+      : GetScalarType<T[P], AggregateQuestion[P]>
   }
 
 
 
 
-  export type TranslationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TranslationWhereInput
-    orderBy?: TranslationOrderByWithAggregationInput | TranslationOrderByWithAggregationInput[]
-    by: TranslationScalarFieldEnum[] | TranslationScalarFieldEnum
-    having?: TranslationScalarWhereWithAggregatesInput
+  export type QuestionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: QuestionWhereInput
+    orderBy?: QuestionOrderByWithAggregationInput | QuestionOrderByWithAggregationInput[]
+    by: QuestionScalarFieldEnum[] | QuestionScalarFieldEnum
+    having?: QuestionScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: TranslationCountAggregateInputType | true
-    _min?: TranslationMinAggregateInputType
-    _max?: TranslationMaxAggregateInputType
+    _count?: QuestionCountAggregateInputType | true
+    _min?: QuestionMinAggregateInputType
+    _max?: QuestionMaxAggregateInputType
   }
 
-  export type TranslationGroupByOutputType = {
+  export type QuestionGroupByOutputType = {
     id: string
-    original: string
-    translated: string
-    _count: TranslationCountAggregateOutputType | null
-    _min: TranslationMinAggregateOutputType | null
-    _max: TranslationMaxAggregateOutputType | null
+    question: string
+    correctAnswer: string
+    _count: QuestionCountAggregateOutputType | null
+    _min: QuestionMinAggregateOutputType | null
+    _max: QuestionMaxAggregateOutputType | null
   }
 
-  type GetTranslationGroupByPayload<T extends TranslationGroupByArgs> = Prisma.PrismaPromise<
+  type GetQuestionGroupByPayload<T extends QuestionGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<TranslationGroupByOutputType, T['by']> &
+      PickEnumerable<QuestionGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof TranslationGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof QuestionGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], TranslationGroupByOutputType[P]>
-            : GetScalarType<T[P], TranslationGroupByOutputType[P]>
+              : GetScalarType<T[P], QuestionGroupByOutputType[P]>
+            : GetScalarType<T[P], QuestionGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type TranslationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type QuestionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    original?: boolean
-    translated?: boolean
+    question?: boolean
+    correctAnswer?: boolean
     classroom?: boolean | ClassroomDefaultArgs<ExtArgs>
-    answers?: boolean | Translation$answersArgs<ExtArgs>
-    _count?: boolean | TranslationCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["translation"]>
+    answers?: boolean | Question$answersArgs<ExtArgs>
+    _count?: boolean | QuestionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["question"]>
 
-  export type TranslationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type QuestionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    original?: boolean
-    translated?: boolean
+    question?: boolean
+    correctAnswer?: boolean
     classroom?: boolean | ClassroomDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["translation"]>
+  }, ExtArgs["result"]["question"]>
 
-  export type TranslationSelectScalar = {
+  export type QuestionSelectScalar = {
     id?: boolean
-    original?: boolean
-    translated?: boolean
+    question?: boolean
+    correctAnswer?: boolean
   }
 
-  export type TranslationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     classroom?: boolean | ClassroomDefaultArgs<ExtArgs>
-    answers?: boolean | Translation$answersArgs<ExtArgs>
-    _count?: boolean | TranslationCountOutputTypeDefaultArgs<ExtArgs>
+    answers?: boolean | Question$answersArgs<ExtArgs>
+    _count?: boolean | QuestionCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type TranslationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     classroom?: boolean | ClassroomDefaultArgs<ExtArgs>
   }
 
-  export type $TranslationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Translation"
+  export type $QuestionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Question"
     objects: {
       classroom: Prisma.$ClassroomPayload<ExtArgs>
       answers: Prisma.$AnswerPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      original: string
-      translated: string
-    }, ExtArgs["result"]["translation"]>
+      question: string
+      correctAnswer: string
+    }, ExtArgs["result"]["question"]>
     composites: {}
   }
 
-  type TranslationGetPayload<S extends boolean | null | undefined | TranslationDefaultArgs> = $Result.GetResult<Prisma.$TranslationPayload, S>
+  type QuestionGetPayload<S extends boolean | null | undefined | QuestionDefaultArgs> = $Result.GetResult<Prisma.$QuestionPayload, S>
 
-  type TranslationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<TranslationFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: TranslationCountAggregateInputType | true
+  type QuestionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<QuestionFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: QuestionCountAggregateInputType | true
     }
 
-  export interface TranslationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Translation'], meta: { name: 'Translation' } }
+  export interface QuestionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Question'], meta: { name: 'Question' } }
     /**
-     * Find zero or one Translation that matches the filter.
-     * @param {TranslationFindUniqueArgs} args - Arguments to find a Translation
+     * Find zero or one Question that matches the filter.
+     * @param {QuestionFindUniqueArgs} args - Arguments to find a Question
      * @example
-     * // Get one Translation
-     * const translation = await prisma.translation.findUnique({
+     * // Get one Question
+     * const question = await prisma.question.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends TranslationFindUniqueArgs>(args: SelectSubset<T, TranslationFindUniqueArgs<ExtArgs>>): Prisma__TranslationClient<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends QuestionFindUniqueArgs>(args: SelectSubset<T, QuestionFindUniqueArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one Translation that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one Question that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {TranslationFindUniqueOrThrowArgs} args - Arguments to find a Translation
+     * @param {QuestionFindUniqueOrThrowArgs} args - Arguments to find a Question
      * @example
-     * // Get one Translation
-     * const translation = await prisma.translation.findUniqueOrThrow({
+     * // Get one Question
+     * const question = await prisma.question.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends TranslationFindUniqueOrThrowArgs>(args: SelectSubset<T, TranslationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TranslationClient<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends QuestionFindUniqueOrThrowArgs>(args: SelectSubset<T, QuestionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first Translation that matches the filter.
+     * Find the first Question that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TranslationFindFirstArgs} args - Arguments to find a Translation
+     * @param {QuestionFindFirstArgs} args - Arguments to find a Question
      * @example
-     * // Get one Translation
-     * const translation = await prisma.translation.findFirst({
+     * // Get one Question
+     * const question = await prisma.question.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends TranslationFindFirstArgs>(args?: SelectSubset<T, TranslationFindFirstArgs<ExtArgs>>): Prisma__TranslationClient<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends QuestionFindFirstArgs>(args?: SelectSubset<T, QuestionFindFirstArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first Translation that matches the filter or
+     * Find the first Question that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TranslationFindFirstOrThrowArgs} args - Arguments to find a Translation
+     * @param {QuestionFindFirstOrThrowArgs} args - Arguments to find a Question
      * @example
-     * // Get one Translation
-     * const translation = await prisma.translation.findFirstOrThrow({
+     * // Get one Question
+     * const question = await prisma.question.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends TranslationFindFirstOrThrowArgs>(args?: SelectSubset<T, TranslationFindFirstOrThrowArgs<ExtArgs>>): Prisma__TranslationClient<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends QuestionFindFirstOrThrowArgs>(args?: SelectSubset<T, QuestionFindFirstOrThrowArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more Translations that matches the filter.
+     * Find zero or more Questions that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TranslationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {QuestionFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Translations
-     * const translations = await prisma.translation.findMany()
+     * // Get all Questions
+     * const questions = await prisma.question.findMany()
      * 
-     * // Get first 10 Translations
-     * const translations = await prisma.translation.findMany({ take: 10 })
+     * // Get first 10 Questions
+     * const questions = await prisma.question.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const translationWithIdOnly = await prisma.translation.findMany({ select: { id: true } })
+     * const questionWithIdOnly = await prisma.question.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends TranslationFindManyArgs>(args?: SelectSubset<T, TranslationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends QuestionFindManyArgs>(args?: SelectSubset<T, QuestionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a Translation.
-     * @param {TranslationCreateArgs} args - Arguments to create a Translation.
+     * Create a Question.
+     * @param {QuestionCreateArgs} args - Arguments to create a Question.
      * @example
-     * // Create one Translation
-     * const Translation = await prisma.translation.create({
+     * // Create one Question
+     * const Question = await prisma.question.create({
      *   data: {
-     *     // ... data to create a Translation
+     *     // ... data to create a Question
      *   }
      * })
      * 
      */
-    create<T extends TranslationCreateArgs>(args: SelectSubset<T, TranslationCreateArgs<ExtArgs>>): Prisma__TranslationClient<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends QuestionCreateArgs>(args: SelectSubset<T, QuestionCreateArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many Translations.
-     * @param {TranslationCreateManyArgs} args - Arguments to create many Translations.
+     * Create many Questions.
+     * @param {QuestionCreateManyArgs} args - Arguments to create many Questions.
      * @example
-     * // Create many Translations
-     * const translation = await prisma.translation.createMany({
+     * // Create many Questions
+     * const question = await prisma.question.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends TranslationCreateManyArgs>(args?: SelectSubset<T, TranslationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends QuestionCreateManyArgs>(args?: SelectSubset<T, QuestionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Translations and returns the data saved in the database.
-     * @param {TranslationCreateManyAndReturnArgs} args - Arguments to create many Translations.
+     * Create many Questions and returns the data saved in the database.
+     * @param {QuestionCreateManyAndReturnArgs} args - Arguments to create many Questions.
      * @example
-     * // Create many Translations
-     * const translation = await prisma.translation.createManyAndReturn({
+     * // Create many Questions
+     * const question = await prisma.question.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Translations and only return the `id`
-     * const translationWithIdOnly = await prisma.translation.createManyAndReturn({ 
+     * // Create many Questions and only return the `id`
+     * const questionWithIdOnly = await prisma.question.createManyAndReturn({ 
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1517,28 +1526,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends TranslationCreateManyAndReturnArgs>(args?: SelectSubset<T, TranslationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "createManyAndReturn">>
+    createManyAndReturn<T extends QuestionCreateManyAndReturnArgs>(args?: SelectSubset<T, QuestionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
-     * Delete a Translation.
-     * @param {TranslationDeleteArgs} args - Arguments to delete one Translation.
+     * Delete a Question.
+     * @param {QuestionDeleteArgs} args - Arguments to delete one Question.
      * @example
-     * // Delete one Translation
-     * const Translation = await prisma.translation.delete({
+     * // Delete one Question
+     * const Question = await prisma.question.delete({
      *   where: {
-     *     // ... filter to delete one Translation
+     *     // ... filter to delete one Question
      *   }
      * })
      * 
      */
-    delete<T extends TranslationDeleteArgs>(args: SelectSubset<T, TranslationDeleteArgs<ExtArgs>>): Prisma__TranslationClient<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends QuestionDeleteArgs>(args: SelectSubset<T, QuestionDeleteArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one Translation.
-     * @param {TranslationUpdateArgs} args - Arguments to update one Translation.
+     * Update one Question.
+     * @param {QuestionUpdateArgs} args - Arguments to update one Question.
      * @example
-     * // Update one Translation
-     * const translation = await prisma.translation.update({
+     * // Update one Question
+     * const question = await prisma.question.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1548,30 +1557,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends TranslationUpdateArgs>(args: SelectSubset<T, TranslationUpdateArgs<ExtArgs>>): Prisma__TranslationClient<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends QuestionUpdateArgs>(args: SelectSubset<T, QuestionUpdateArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more Translations.
-     * @param {TranslationDeleteManyArgs} args - Arguments to filter Translations to delete.
+     * Delete zero or more Questions.
+     * @param {QuestionDeleteManyArgs} args - Arguments to filter Questions to delete.
      * @example
-     * // Delete a few Translations
-     * const { count } = await prisma.translation.deleteMany({
+     * // Delete a few Questions
+     * const { count } = await prisma.question.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends TranslationDeleteManyArgs>(args?: SelectSubset<T, TranslationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends QuestionDeleteManyArgs>(args?: SelectSubset<T, QuestionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Translations.
+     * Update zero or more Questions.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TranslationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {QuestionUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Translations
-     * const translation = await prisma.translation.updateMany({
+     * // Update many Questions
+     * const question = await prisma.question.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1581,56 +1590,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends TranslationUpdateManyArgs>(args: SelectSubset<T, TranslationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends QuestionUpdateManyArgs>(args: SelectSubset<T, QuestionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Translation.
-     * @param {TranslationUpsertArgs} args - Arguments to update or create a Translation.
+     * Create or update one Question.
+     * @param {QuestionUpsertArgs} args - Arguments to update or create a Question.
      * @example
-     * // Update or create a Translation
-     * const translation = await prisma.translation.upsert({
+     * // Update or create a Question
+     * const question = await prisma.question.upsert({
      *   create: {
-     *     // ... data to create a Translation
+     *     // ... data to create a Question
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Translation we want to update
+     *     // ... the filter for the Question we want to update
      *   }
      * })
      */
-    upsert<T extends TranslationUpsertArgs>(args: SelectSubset<T, TranslationUpsertArgs<ExtArgs>>): Prisma__TranslationClient<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends QuestionUpsertArgs>(args: SelectSubset<T, QuestionUpsertArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of Translations.
+     * Count the number of Questions.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TranslationCountArgs} args - Arguments to filter Translations to count.
+     * @param {QuestionCountArgs} args - Arguments to filter Questions to count.
      * @example
-     * // Count the number of Translations
-     * const count = await prisma.translation.count({
+     * // Count the number of Questions
+     * const count = await prisma.question.count({
      *   where: {
-     *     // ... the filter for the Translations we want to count
+     *     // ... the filter for the Questions we want to count
      *   }
      * })
     **/
-    count<T extends TranslationCountArgs>(
-      args?: Subset<T, TranslationCountArgs>,
+    count<T extends QuestionCountArgs>(
+      args?: Subset<T, QuestionCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], TranslationCountAggregateOutputType>
+          : GetScalarType<T['select'], QuestionCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Translation.
+     * Allows you to perform aggregations operations on a Question.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TranslationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {QuestionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1650,13 +1659,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends TranslationAggregateArgs>(args: Subset<T, TranslationAggregateArgs>): Prisma.PrismaPromise<GetTranslationAggregateType<T>>
+    aggregate<T extends QuestionAggregateArgs>(args: Subset<T, QuestionAggregateArgs>): Prisma.PrismaPromise<GetQuestionAggregateType<T>>
 
     /**
-     * Group by Translation.
+     * Group by Question.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TranslationGroupByArgs} args - Group by arguments.
+     * @param {QuestionGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1671,14 +1680,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends TranslationGroupByArgs,
+      T extends QuestionGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: TranslationGroupByArgs['orderBy'] }
-        : { orderBy?: TranslationGroupByArgs['orderBy'] },
+        ? { orderBy: QuestionGroupByArgs['orderBy'] }
+        : { orderBy?: QuestionGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1727,23 +1736,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, TranslationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTranslationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, QuestionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetQuestionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Translation model
+   * Fields of the Question model
    */
-  readonly fields: TranslationFieldRefs;
+  readonly fields: QuestionFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Translation.
+   * The delegate class that acts as a "Promise-like" for Question.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__TranslationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__QuestionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     classroom<T extends ClassroomDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClassroomDefaultArgs<ExtArgs>>): Prisma__ClassroomClient<$Result.GetResult<Prisma.$ClassroomPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    answers<T extends Translation$answersArgs<ExtArgs> = {}>(args?: Subset<T, Translation$answersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnswerPayload<ExtArgs>, T, "findMany"> | Null>
+    answers<T extends Question$answersArgs<ExtArgs> = {}>(args?: Subset<T, Question$answersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnswerPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1770,333 +1779,333 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Translation model
+   * Fields of the Question model
    */ 
-  interface TranslationFieldRefs {
-    readonly id: FieldRef<"Translation", 'String'>
-    readonly original: FieldRef<"Translation", 'String'>
-    readonly translated: FieldRef<"Translation", 'String'>
+  interface QuestionFieldRefs {
+    readonly id: FieldRef<"Question", 'String'>
+    readonly question: FieldRef<"Question", 'String'>
+    readonly correctAnswer: FieldRef<"Question", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Translation findUnique
+   * Question findUnique
    */
-  export type TranslationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
     /**
-     * Filter, which Translation to fetch.
+     * Filter, which Question to fetch.
      */
-    where: TranslationWhereUniqueInput
+    where: QuestionWhereUniqueInput
   }
 
   /**
-   * Translation findUniqueOrThrow
+   * Question findUniqueOrThrow
    */
-  export type TranslationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
     /**
-     * Filter, which Translation to fetch.
+     * Filter, which Question to fetch.
      */
-    where: TranslationWhereUniqueInput
+    where: QuestionWhereUniqueInput
   }
 
   /**
-   * Translation findFirst
+   * Question findFirst
    */
-  export type TranslationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
     /**
-     * Filter, which Translation to fetch.
+     * Filter, which Question to fetch.
      */
-    where?: TranslationWhereInput
+    where?: QuestionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Translations to fetch.
+     * Determine the order of Questions to fetch.
      */
-    orderBy?: TranslationOrderByWithRelationInput | TranslationOrderByWithRelationInput[]
+    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Translations.
+     * Sets the position for searching for Questions.
      */
-    cursor?: TranslationWhereUniqueInput
+    cursor?: QuestionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Translations from the position of the cursor.
+     * Take `±n` Questions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Translations.
+     * Skip the first `n` Questions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Translations.
+     * Filter by unique combinations of Questions.
      */
-    distinct?: TranslationScalarFieldEnum | TranslationScalarFieldEnum[]
+    distinct?: QuestionScalarFieldEnum | QuestionScalarFieldEnum[]
   }
 
   /**
-   * Translation findFirstOrThrow
+   * Question findFirstOrThrow
    */
-  export type TranslationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
     /**
-     * Filter, which Translation to fetch.
+     * Filter, which Question to fetch.
      */
-    where?: TranslationWhereInput
+    where?: QuestionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Translations to fetch.
+     * Determine the order of Questions to fetch.
      */
-    orderBy?: TranslationOrderByWithRelationInput | TranslationOrderByWithRelationInput[]
+    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Translations.
+     * Sets the position for searching for Questions.
      */
-    cursor?: TranslationWhereUniqueInput
+    cursor?: QuestionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Translations from the position of the cursor.
+     * Take `±n` Questions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Translations.
+     * Skip the first `n` Questions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Translations.
+     * Filter by unique combinations of Questions.
      */
-    distinct?: TranslationScalarFieldEnum | TranslationScalarFieldEnum[]
+    distinct?: QuestionScalarFieldEnum | QuestionScalarFieldEnum[]
   }
 
   /**
-   * Translation findMany
+   * Question findMany
    */
-  export type TranslationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
     /**
-     * Filter, which Translations to fetch.
+     * Filter, which Questions to fetch.
      */
-    where?: TranslationWhereInput
+    where?: QuestionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Translations to fetch.
+     * Determine the order of Questions to fetch.
      */
-    orderBy?: TranslationOrderByWithRelationInput | TranslationOrderByWithRelationInput[]
+    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Translations.
+     * Sets the position for listing Questions.
      */
-    cursor?: TranslationWhereUniqueInput
+    cursor?: QuestionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Translations from the position of the cursor.
+     * Take `±n` Questions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Translations.
+     * Skip the first `n` Questions.
      */
     skip?: number
-    distinct?: TranslationScalarFieldEnum | TranslationScalarFieldEnum[]
+    distinct?: QuestionScalarFieldEnum | QuestionScalarFieldEnum[]
   }
 
   /**
-   * Translation create
+   * Question create
    */
-  export type TranslationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
     /**
-     * The data needed to create a Translation.
+     * The data needed to create a Question.
      */
-    data: XOR<TranslationCreateInput, TranslationUncheckedCreateInput>
+    data: XOR<QuestionCreateInput, QuestionUncheckedCreateInput>
   }
 
   /**
-   * Translation createMany
+   * Question createMany
    */
-  export type TranslationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Translations.
+     * The data used to create many Questions.
      */
-    data: TranslationCreateManyInput | TranslationCreateManyInput[]
+    data: QuestionCreateManyInput | QuestionCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Translation createManyAndReturn
+   * Question createManyAndReturn
    */
-  export type TranslationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelectCreateManyAndReturn<ExtArgs> | null
+    select?: QuestionSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * The data used to create many Translations.
+     * The data used to create many Questions.
      */
-    data: TranslationCreateManyInput | TranslationCreateManyInput[]
+    data: QuestionCreateManyInput | QuestionCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: QuestionIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Translation update
+   * Question update
    */
-  export type TranslationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
     /**
-     * The data needed to update a Translation.
+     * The data needed to update a Question.
      */
-    data: XOR<TranslationUpdateInput, TranslationUncheckedUpdateInput>
+    data: XOR<QuestionUpdateInput, QuestionUncheckedUpdateInput>
     /**
-     * Choose, which Translation to update.
+     * Choose, which Question to update.
      */
-    where: TranslationWhereUniqueInput
+    where: QuestionWhereUniqueInput
   }
 
   /**
-   * Translation updateMany
+   * Question updateMany
    */
-  export type TranslationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Translations.
+     * The data used to update Questions.
      */
-    data: XOR<TranslationUpdateManyMutationInput, TranslationUncheckedUpdateManyInput>
+    data: XOR<QuestionUpdateManyMutationInput, QuestionUncheckedUpdateManyInput>
     /**
-     * Filter which Translations to update
+     * Filter which Questions to update
      */
-    where?: TranslationWhereInput
+    where?: QuestionWhereInput
   }
 
   /**
-   * Translation upsert
+   * Question upsert
    */
-  export type TranslationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
     /**
-     * The filter to search for the Translation to update in case it exists.
+     * The filter to search for the Question to update in case it exists.
      */
-    where: TranslationWhereUniqueInput
+    where: QuestionWhereUniqueInput
     /**
-     * In case the Translation found by the `where` argument doesn't exist, create a new Translation with this data.
+     * In case the Question found by the `where` argument doesn't exist, create a new Question with this data.
      */
-    create: XOR<TranslationCreateInput, TranslationUncheckedCreateInput>
+    create: XOR<QuestionCreateInput, QuestionUncheckedCreateInput>
     /**
-     * In case the Translation was found with the provided `where` argument, update it with this data.
+     * In case the Question was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<TranslationUpdateInput, TranslationUncheckedUpdateInput>
+    update: XOR<QuestionUpdateInput, QuestionUncheckedUpdateInput>
   }
 
   /**
-   * Translation delete
+   * Question delete
    */
-  export type TranslationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
     /**
-     * Filter which Translation to delete.
+     * Filter which Question to delete.
      */
-    where: TranslationWhereUniqueInput
+    where: QuestionWhereUniqueInput
   }
 
   /**
-   * Translation deleteMany
+   * Question deleteMany
    */
-  export type TranslationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Translations to delete
+     * Filter which Questions to delete
      */
-    where?: TranslationWhereInput
+    where?: QuestionWhereInput
   }
 
   /**
-   * Translation.answers
+   * Question.answers
    */
-  export type Translation$answersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Question$answersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Answer
      */
@@ -2114,17 +2123,17 @@ export namespace Prisma {
   }
 
   /**
-   * Translation without action
+   * Question without action
    */
-  export type TranslationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type QuestionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
+    include?: QuestionInclude<ExtArgs> | null
   }
 
 
@@ -2285,7 +2294,7 @@ export namespace Prisma {
     date?: boolean
     isCorrect?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
-    translation?: boolean | TranslationDefaultArgs<ExtArgs>
+    question?: boolean | QuestionDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["answer"]>
 
   export type AnswerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2294,7 +2303,7 @@ export namespace Prisma {
     date?: boolean
     isCorrect?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
-    translation?: boolean | TranslationDefaultArgs<ExtArgs>
+    question?: boolean | QuestionDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["answer"]>
 
   export type AnswerSelectScalar = {
@@ -2306,18 +2315,18 @@ export namespace Prisma {
 
   export type AnswerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
-    translation?: boolean | TranslationDefaultArgs<ExtArgs>
+    question?: boolean | QuestionDefaultArgs<ExtArgs>
   }
   export type AnswerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
-    translation?: boolean | TranslationDefaultArgs<ExtArgs>
+    question?: boolean | QuestionDefaultArgs<ExtArgs>
   }
 
   export type $AnswerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Answer"
     objects: {
       profile: Prisma.$ProfilePayload<ExtArgs>
-      translation: Prisma.$TranslationPayload<ExtArgs>
+      question: Prisma.$QuestionPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2689,7 +2698,7 @@ export namespace Prisma {
   export interface Prisma__AnswerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     profile<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    translation<T extends TranslationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TranslationDefaultArgs<ExtArgs>>): Prisma__TranslationClient<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    question<T extends QuestionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, QuestionDefaultArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3196,12 +3205,14 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     answers?: boolean | Profile$answersArgs<ExtArgs>
+    classroom?: boolean | ClassroomDefaultArgs<ExtArgs>
     _count?: boolean | ProfileCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["profile"]>
 
   export type ProfileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    classroom?: boolean | ClassroomDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["profile"]>
 
   export type ProfileSelectScalar = {
@@ -3211,14 +3222,18 @@ export namespace Prisma {
 
   export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     answers?: boolean | Profile$answersArgs<ExtArgs>
+    classroom?: boolean | ClassroomDefaultArgs<ExtArgs>
     _count?: boolean | ProfileCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type ProfileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProfileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    classroom?: boolean | ClassroomDefaultArgs<ExtArgs>
+  }
 
   export type $ProfilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Profile"
     objects: {
       answers: Prisma.$AnswerPayload<ExtArgs>[]
+      classroom: Prisma.$ClassroomPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3588,6 +3603,7 @@ export namespace Prisma {
   export interface Prisma__ProfileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     answers<T extends Profile$answersArgs<ExtArgs> = {}>(args?: Subset<T, Profile$answersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnswerPayload<ExtArgs>, T, "findMany"> | Null>
+    classroom<T extends ClassroomDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClassroomDefaultArgs<ExtArgs>>): Prisma__ClassroomClient<$Result.GetResult<Prisma.$ClassroomPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3840,6 +3856,10 @@ export namespace Prisma {
      */
     data: ProfileCreateManyInput | ProfileCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3980,16 +4000,19 @@ export namespace Prisma {
   export type ClassroomMinAggregateOutputType = {
     id: string | null
     name: string | null
+    lastUpdated: Date | null
   }
 
   export type ClassroomMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    lastUpdated: Date | null
   }
 
   export type ClassroomCountAggregateOutputType = {
     id: number
     name: number
+    lastUpdated: number
     _all: number
   }
 
@@ -3997,16 +4020,19 @@ export namespace Prisma {
   export type ClassroomMinAggregateInputType = {
     id?: true
     name?: true
+    lastUpdated?: true
   }
 
   export type ClassroomMaxAggregateInputType = {
     id?: true
     name?: true
+    lastUpdated?: true
   }
 
   export type ClassroomCountAggregateInputType = {
     id?: true
     name?: true
+    lastUpdated?: true
     _all?: true
   }
 
@@ -4085,6 +4111,7 @@ export namespace Prisma {
   export type ClassroomGroupByOutputType = {
     id: string
     name: string
+    lastUpdated: Date
     _count: ClassroomCountAggregateOutputType | null
     _min: ClassroomMinAggregateOutputType | null
     _max: ClassroomMaxAggregateOutputType | null
@@ -4107,22 +4134,27 @@ export namespace Prisma {
   export type ClassroomSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    translations?: boolean | Classroom$translationsArgs<ExtArgs>
+    lastUpdated?: boolean
+    questions?: boolean | Classroom$questionsArgs<ExtArgs>
+    profiles?: boolean | Classroom$profilesArgs<ExtArgs>
     _count?: boolean | ClassroomCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["classroom"]>
 
   export type ClassroomSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    lastUpdated?: boolean
   }, ExtArgs["result"]["classroom"]>
 
   export type ClassroomSelectScalar = {
     id?: boolean
     name?: boolean
+    lastUpdated?: boolean
   }
 
   export type ClassroomInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    translations?: boolean | Classroom$translationsArgs<ExtArgs>
+    questions?: boolean | Classroom$questionsArgs<ExtArgs>
+    profiles?: boolean | Classroom$profilesArgs<ExtArgs>
     _count?: boolean | ClassroomCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ClassroomIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -4130,11 +4162,13 @@ export namespace Prisma {
   export type $ClassroomPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Classroom"
     objects: {
-      translations: Prisma.$TranslationPayload<ExtArgs>[]
+      questions: Prisma.$QuestionPayload<ExtArgs>[]
+      profiles: Prisma.$ProfilePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      lastUpdated: Date
     }, ExtArgs["result"]["classroom"]>
     composites: {}
   }
@@ -4499,7 +4533,8 @@ export namespace Prisma {
    */
   export interface Prisma__ClassroomClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    translations<T extends Classroom$translationsArgs<ExtArgs> = {}>(args?: Subset<T, Classroom$translationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "findMany"> | Null>
+    questions<T extends Classroom$questionsArgs<ExtArgs> = {}>(args?: Subset<T, Classroom$questionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findMany"> | Null>
+    profiles<T extends Classroom$profilesArgs<ExtArgs> = {}>(args?: Subset<T, Classroom$profilesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4531,6 +4566,7 @@ export namespace Prisma {
   interface ClassroomFieldRefs {
     readonly id: FieldRef<"Classroom", 'String'>
     readonly name: FieldRef<"Classroom", 'String'>
+    readonly lastUpdated: FieldRef<"Classroom", 'DateTime'>
   }
     
 
@@ -4845,23 +4881,43 @@ export namespace Prisma {
   }
 
   /**
-   * Classroom.translations
+   * Classroom.questions
    */
-  export type Classroom$translationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Classroom$questionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Translation
+     * Select specific fields to fetch from the Question
      */
-    select?: TranslationSelect<ExtArgs> | null
+    select?: QuestionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: TranslationInclude<ExtArgs> | null
-    where?: TranslationWhereInput
-    orderBy?: TranslationOrderByWithRelationInput | TranslationOrderByWithRelationInput[]
-    cursor?: TranslationWhereUniqueInput
+    include?: QuestionInclude<ExtArgs> | null
+    where?: QuestionWhereInput
+    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
+    cursor?: QuestionWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: TranslationScalarFieldEnum | TranslationScalarFieldEnum[]
+    distinct?: QuestionScalarFieldEnum | QuestionScalarFieldEnum[]
+  }
+
+  /**
+   * Classroom.profiles
+   */
+  export type Classroom$profilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    where?: ProfileWhereInput
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    cursor?: ProfileWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
   }
 
   /**
@@ -4893,13 +4949,13 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const TranslationScalarFieldEnum: {
+  export const QuestionScalarFieldEnum: {
     id: 'id',
-    original: 'original',
-    translated: 'translated'
+    question: 'question',
+    correctAnswer: 'correctAnswer'
   };
 
-  export type TranslationScalarFieldEnum = (typeof TranslationScalarFieldEnum)[keyof typeof TranslationScalarFieldEnum]
+  export type QuestionScalarFieldEnum = (typeof QuestionScalarFieldEnum)[keyof typeof QuestionScalarFieldEnum]
 
 
   export const AnswerScalarFieldEnum: {
@@ -4922,7 +4978,8 @@ export namespace Prisma {
 
   export const ClassroomScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    name: 'name',
+    lastUpdated: 'lastUpdated'
   };
 
   export type ClassroomScalarFieldEnum = (typeof ClassroomScalarFieldEnum)[keyof typeof ClassroomScalarFieldEnum]
@@ -5001,52 +5058,52 @@ export namespace Prisma {
    */
 
 
-  export type TranslationWhereInput = {
-    AND?: TranslationWhereInput | TranslationWhereInput[]
-    OR?: TranslationWhereInput[]
-    NOT?: TranslationWhereInput | TranslationWhereInput[]
-    id?: StringFilter<"Translation"> | string
-    original?: StringFilter<"Translation"> | string
-    translated?: StringFilter<"Translation"> | string
+  export type QuestionWhereInput = {
+    AND?: QuestionWhereInput | QuestionWhereInput[]
+    OR?: QuestionWhereInput[]
+    NOT?: QuestionWhereInput | QuestionWhereInput[]
+    id?: StringFilter<"Question"> | string
+    question?: StringFilter<"Question"> | string
+    correctAnswer?: StringFilter<"Question"> | string
     classroom?: XOR<ClassroomRelationFilter, ClassroomWhereInput>
     answers?: AnswerListRelationFilter
   }
 
-  export type TranslationOrderByWithRelationInput = {
+  export type QuestionOrderByWithRelationInput = {
     id?: SortOrder
-    original?: SortOrder
-    translated?: SortOrder
+    question?: SortOrder
+    correctAnswer?: SortOrder
     classroom?: ClassroomOrderByWithRelationInput
     answers?: AnswerOrderByRelationAggregateInput
   }
 
-  export type TranslationWhereUniqueInput = Prisma.AtLeast<{
+  export type QuestionWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: TranslationWhereInput | TranslationWhereInput[]
-    OR?: TranslationWhereInput[]
-    NOT?: TranslationWhereInput | TranslationWhereInput[]
-    original?: StringFilter<"Translation"> | string
-    translated?: StringFilter<"Translation"> | string
+    AND?: QuestionWhereInput | QuestionWhereInput[]
+    OR?: QuestionWhereInput[]
+    NOT?: QuestionWhereInput | QuestionWhereInput[]
+    question?: StringFilter<"Question"> | string
+    correctAnswer?: StringFilter<"Question"> | string
     classroom?: XOR<ClassroomRelationFilter, ClassroomWhereInput>
     answers?: AnswerListRelationFilter
   }, "id">
 
-  export type TranslationOrderByWithAggregationInput = {
+  export type QuestionOrderByWithAggregationInput = {
     id?: SortOrder
-    original?: SortOrder
-    translated?: SortOrder
-    _count?: TranslationCountOrderByAggregateInput
-    _max?: TranslationMaxOrderByAggregateInput
-    _min?: TranslationMinOrderByAggregateInput
+    question?: SortOrder
+    correctAnswer?: SortOrder
+    _count?: QuestionCountOrderByAggregateInput
+    _max?: QuestionMaxOrderByAggregateInput
+    _min?: QuestionMinOrderByAggregateInput
   }
 
-  export type TranslationScalarWhereWithAggregatesInput = {
-    AND?: TranslationScalarWhereWithAggregatesInput | TranslationScalarWhereWithAggregatesInput[]
-    OR?: TranslationScalarWhereWithAggregatesInput[]
-    NOT?: TranslationScalarWhereWithAggregatesInput | TranslationScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Translation"> | string
-    original?: StringWithAggregatesFilter<"Translation"> | string
-    translated?: StringWithAggregatesFilter<"Translation"> | string
+  export type QuestionScalarWhereWithAggregatesInput = {
+    AND?: QuestionScalarWhereWithAggregatesInput | QuestionScalarWhereWithAggregatesInput[]
+    OR?: QuestionScalarWhereWithAggregatesInput[]
+    NOT?: QuestionScalarWhereWithAggregatesInput | QuestionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Question"> | string
+    question?: StringWithAggregatesFilter<"Question"> | string
+    correctAnswer?: StringWithAggregatesFilter<"Question"> | string
   }
 
   export type AnswerWhereInput = {
@@ -5058,7 +5115,7 @@ export namespace Prisma {
     date?: DateTimeFilter<"Answer"> | Date | string
     isCorrect?: BoolFilter<"Answer"> | boolean
     profile?: XOR<ProfileRelationFilter, ProfileWhereInput>
-    translation?: XOR<TranslationRelationFilter, TranslationWhereInput>
+    question?: XOR<QuestionRelationFilter, QuestionWhereInput>
   }
 
   export type AnswerOrderByWithRelationInput = {
@@ -5067,7 +5124,7 @@ export namespace Prisma {
     date?: SortOrder
     isCorrect?: SortOrder
     profile?: ProfileOrderByWithRelationInput
-    translation?: TranslationOrderByWithRelationInput
+    question?: QuestionOrderByWithRelationInput
   }
 
   export type AnswerWhereUniqueInput = Prisma.AtLeast<{
@@ -5079,7 +5136,7 @@ export namespace Prisma {
     date?: DateTimeFilter<"Answer"> | Date | string
     isCorrect?: BoolFilter<"Answer"> | boolean
     profile?: XOR<ProfileRelationFilter, ProfileWhereInput>
-    translation?: XOR<TranslationRelationFilter, TranslationWhereInput>
+    question?: XOR<QuestionRelationFilter, QuestionWhereInput>
   }, "id">
 
   export type AnswerOrderByWithAggregationInput = {
@@ -5109,12 +5166,14 @@ export namespace Prisma {
     id?: StringFilter<"Profile"> | string
     name?: StringFilter<"Profile"> | string
     answers?: AnswerListRelationFilter
+    classroom?: XOR<ClassroomRelationFilter, ClassroomWhereInput>
   }
 
   export type ProfileOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     answers?: AnswerOrderByRelationAggregateInput
+    classroom?: ClassroomOrderByWithRelationInput
   }
 
   export type ProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -5124,6 +5183,7 @@ export namespace Prisma {
     NOT?: ProfileWhereInput | ProfileWhereInput[]
     name?: StringFilter<"Profile"> | string
     answers?: AnswerListRelationFilter
+    classroom?: XOR<ClassroomRelationFilter, ClassroomWhereInput>
   }, "id">
 
   export type ProfileOrderByWithAggregationInput = {
@@ -5148,13 +5208,17 @@ export namespace Prisma {
     NOT?: ClassroomWhereInput | ClassroomWhereInput[]
     id?: StringFilter<"Classroom"> | string
     name?: StringFilter<"Classroom"> | string
-    translations?: TranslationListRelationFilter
+    lastUpdated?: DateTimeFilter<"Classroom"> | Date | string
+    questions?: QuestionListRelationFilter
+    profiles?: ProfileListRelationFilter
   }
 
   export type ClassroomOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    translations?: TranslationOrderByRelationAggregateInput
+    lastUpdated?: SortOrder
+    questions?: QuestionOrderByRelationAggregateInput
+    profiles?: ProfileOrderByRelationAggregateInput
   }
 
   export type ClassroomWhereUniqueInput = Prisma.AtLeast<{
@@ -5163,12 +5227,15 @@ export namespace Prisma {
     OR?: ClassroomWhereInput[]
     NOT?: ClassroomWhereInput | ClassroomWhereInput[]
     name?: StringFilter<"Classroom"> | string
-    translations?: TranslationListRelationFilter
+    lastUpdated?: DateTimeFilter<"Classroom"> | Date | string
+    questions?: QuestionListRelationFilter
+    profiles?: ProfileListRelationFilter
   }, "id">
 
   export type ClassroomOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    lastUpdated?: SortOrder
     _count?: ClassroomCountOrderByAggregateInput
     _max?: ClassroomMaxOrderByAggregateInput
     _min?: ClassroomMinOrderByAggregateInput
@@ -5180,51 +5247,52 @@ export namespace Prisma {
     NOT?: ClassroomScalarWhereWithAggregatesInput | ClassroomScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Classroom"> | string
     name?: StringWithAggregatesFilter<"Classroom"> | string
+    lastUpdated?: DateTimeWithAggregatesFilter<"Classroom"> | Date | string
   }
 
-  export type TranslationCreateInput = {
-    original: string
-    translated: string
-    classroom?: ClassroomCreateNestedOneWithoutTranslationsInput
-    answers?: AnswerCreateNestedManyWithoutTranslationInput
+  export type QuestionCreateInput = {
+    question: string
+    correctAnswer: string
+    classroom?: ClassroomCreateNestedOneWithoutQuestionsInput
+    answers?: AnswerCreateNestedManyWithoutQuestionInput
   }
 
-  export type TranslationUncheckedCreateInput = {
+  export type QuestionUncheckedCreateInput = {
     id?: string
-    original: string
-    translated: string
-    answers?: AnswerUncheckedCreateNestedManyWithoutTranslationInput
+    question: string
+    correctAnswer: string
+    answers?: AnswerUncheckedCreateNestedManyWithoutQuestionInput
   }
 
-  export type TranslationUpdateInput = {
-    original?: StringFieldUpdateOperationsInput | string
-    translated?: StringFieldUpdateOperationsInput | string
-    classroom?: ClassroomUpdateOneRequiredWithoutTranslationsNestedInput
-    answers?: AnswerUpdateManyWithoutTranslationNestedInput
+  export type QuestionUpdateInput = {
+    question?: StringFieldUpdateOperationsInput | string
+    correctAnswer?: StringFieldUpdateOperationsInput | string
+    classroom?: ClassroomUpdateOneRequiredWithoutQuestionsNestedInput
+    answers?: AnswerUpdateManyWithoutQuestionNestedInput
   }
 
-  export type TranslationUncheckedUpdateInput = {
+  export type QuestionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    original?: StringFieldUpdateOperationsInput | string
-    translated?: StringFieldUpdateOperationsInput | string
-    answers?: AnswerUncheckedUpdateManyWithoutTranslationNestedInput
+    question?: StringFieldUpdateOperationsInput | string
+    correctAnswer?: StringFieldUpdateOperationsInput | string
+    answers?: AnswerUncheckedUpdateManyWithoutQuestionNestedInput
   }
 
-  export type TranslationCreateManyInput = {
+  export type QuestionCreateManyInput = {
     id?: string
-    original: string
-    translated: string
+    question: string
+    correctAnswer: string
   }
 
-  export type TranslationUpdateManyMutationInput = {
-    original?: StringFieldUpdateOperationsInput | string
-    translated?: StringFieldUpdateOperationsInput | string
+  export type QuestionUpdateManyMutationInput = {
+    question?: StringFieldUpdateOperationsInput | string
+    correctAnswer?: StringFieldUpdateOperationsInput | string
   }
 
-  export type TranslationUncheckedUpdateManyInput = {
+  export type QuestionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    original?: StringFieldUpdateOperationsInput | string
-    translated?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    correctAnswer?: StringFieldUpdateOperationsInput | string
   }
 
   export type AnswerCreateInput = {
@@ -5232,7 +5300,7 @@ export namespace Prisma {
     date: Date | string
     isCorrect: boolean
     profile?: ProfileCreateNestedOneWithoutAnswersInput
-    translation?: TranslationCreateNestedOneWithoutAnswersInput
+    question?: QuestionCreateNestedOneWithoutAnswersInput
   }
 
   export type AnswerUncheckedCreateInput = {
@@ -5247,7 +5315,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     isCorrect?: BoolFieldUpdateOperationsInput | boolean
     profile?: ProfileUpdateOneRequiredWithoutAnswersNestedInput
-    translation?: TranslationUpdateOneRequiredWithoutAnswersNestedInput
+    question?: QuestionUpdateOneRequiredWithoutAnswersNestedInput
   }
 
   export type AnswerUncheckedUpdateInput = {
@@ -5278,9 +5346,9 @@ export namespace Prisma {
   }
 
   export type ProfileCreateInput = {
-    id?: string
     name: string
     answers?: AnswerCreateNestedManyWithoutProfileInput
+    classroom?: ClassroomCreateNestedOneWithoutProfilesInput
   }
 
   export type ProfileUncheckedCreateInput = {
@@ -5290,9 +5358,9 @@ export namespace Prisma {
   }
 
   export type ProfileUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     answers?: AnswerUpdateManyWithoutProfileNestedInput
+    classroom?: ClassroomUpdateOneRequiredWithoutProfilesNestedInput
   }
 
   export type ProfileUncheckedUpdateInput = {
@@ -5307,7 +5375,6 @@ export namespace Prisma {
   }
 
   export type ProfileUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
   }
 
@@ -5319,40 +5386,51 @@ export namespace Prisma {
   export type ClassroomCreateInput = {
     id?: string
     name: string
-    translations?: TranslationCreateNestedManyWithoutClassroomInput
+    lastUpdated: Date | string
+    questions?: QuestionCreateNestedManyWithoutClassroomInput
+    profiles?: ProfileCreateNestedManyWithoutClassroomInput
   }
 
   export type ClassroomUncheckedCreateInput = {
     id?: string
     name: string
-    translations?: TranslationUncheckedCreateNestedManyWithoutClassroomInput
+    lastUpdated: Date | string
+    questions?: QuestionUncheckedCreateNestedManyWithoutClassroomInput
+    profiles?: ProfileUncheckedCreateNestedManyWithoutClassroomInput
   }
 
   export type ClassroomUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    translations?: TranslationUpdateManyWithoutClassroomNestedInput
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    questions?: QuestionUpdateManyWithoutClassroomNestedInput
+    profiles?: ProfileUpdateManyWithoutClassroomNestedInput
   }
 
   export type ClassroomUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    translations?: TranslationUncheckedUpdateManyWithoutClassroomNestedInput
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    questions?: QuestionUncheckedUpdateManyWithoutClassroomNestedInput
+    profiles?: ProfileUncheckedUpdateManyWithoutClassroomNestedInput
   }
 
   export type ClassroomCreateManyInput = {
     id?: string
     name: string
+    lastUpdated: Date | string
   }
 
   export type ClassroomUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ClassroomUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -5385,22 +5463,22 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type TranslationCountOrderByAggregateInput = {
+  export type QuestionCountOrderByAggregateInput = {
     id?: SortOrder
-    original?: SortOrder
-    translated?: SortOrder
+    question?: SortOrder
+    correctAnswer?: SortOrder
   }
 
-  export type TranslationMaxOrderByAggregateInput = {
+  export type QuestionMaxOrderByAggregateInput = {
     id?: SortOrder
-    original?: SortOrder
-    translated?: SortOrder
+    question?: SortOrder
+    correctAnswer?: SortOrder
   }
 
-  export type TranslationMinOrderByAggregateInput = {
+  export type QuestionMinOrderByAggregateInput = {
     id?: SortOrder
-    original?: SortOrder
-    translated?: SortOrder
+    question?: SortOrder
+    correctAnswer?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -5442,9 +5520,9 @@ export namespace Prisma {
     isNot?: ProfileWhereInput
   }
 
-  export type TranslationRelationFilter = {
-    is?: TranslationWhereInput
-    isNot?: TranslationWhereInput
+  export type QuestionRelationFilter = {
+    is?: QuestionWhereInput
+    isNot?: QuestionWhereInput
   }
 
   export type AnswerCountOrderByAggregateInput = {
@@ -5505,48 +5583,61 @@ export namespace Prisma {
     name?: SortOrder
   }
 
-  export type TranslationListRelationFilter = {
-    every?: TranslationWhereInput
-    some?: TranslationWhereInput
-    none?: TranslationWhereInput
+  export type QuestionListRelationFilter = {
+    every?: QuestionWhereInput
+    some?: QuestionWhereInput
+    none?: QuestionWhereInput
   }
 
-  export type TranslationOrderByRelationAggregateInput = {
+  export type ProfileListRelationFilter = {
+    every?: ProfileWhereInput
+    some?: ProfileWhereInput
+    none?: ProfileWhereInput
+  }
+
+  export type QuestionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProfileOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type ClassroomCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    lastUpdated?: SortOrder
   }
 
   export type ClassroomMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    lastUpdated?: SortOrder
   }
 
   export type ClassroomMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    lastUpdated?: SortOrder
   }
 
-  export type ClassroomCreateNestedOneWithoutTranslationsInput = {
-    create?: XOR<ClassroomCreateWithoutTranslationsInput, ClassroomUncheckedCreateWithoutTranslationsInput>
-    connectOrCreate?: ClassroomCreateOrConnectWithoutTranslationsInput
+  export type ClassroomCreateNestedOneWithoutQuestionsInput = {
+    create?: XOR<ClassroomCreateWithoutQuestionsInput, ClassroomUncheckedCreateWithoutQuestionsInput>
+    connectOrCreate?: ClassroomCreateOrConnectWithoutQuestionsInput
     connect?: ClassroomWhereUniqueInput
   }
 
-  export type AnswerCreateNestedManyWithoutTranslationInput = {
-    create?: XOR<AnswerCreateWithoutTranslationInput, AnswerUncheckedCreateWithoutTranslationInput> | AnswerCreateWithoutTranslationInput[] | AnswerUncheckedCreateWithoutTranslationInput[]
-    connectOrCreate?: AnswerCreateOrConnectWithoutTranslationInput | AnswerCreateOrConnectWithoutTranslationInput[]
-    createMany?: AnswerCreateManyTranslationInputEnvelope
+  export type AnswerCreateNestedManyWithoutQuestionInput = {
+    create?: XOR<AnswerCreateWithoutQuestionInput, AnswerUncheckedCreateWithoutQuestionInput> | AnswerCreateWithoutQuestionInput[] | AnswerUncheckedCreateWithoutQuestionInput[]
+    connectOrCreate?: AnswerCreateOrConnectWithoutQuestionInput | AnswerCreateOrConnectWithoutQuestionInput[]
+    createMany?: AnswerCreateManyQuestionInputEnvelope
     connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
   }
 
-  export type AnswerUncheckedCreateNestedManyWithoutTranslationInput = {
-    create?: XOR<AnswerCreateWithoutTranslationInput, AnswerUncheckedCreateWithoutTranslationInput> | AnswerCreateWithoutTranslationInput[] | AnswerUncheckedCreateWithoutTranslationInput[]
-    connectOrCreate?: AnswerCreateOrConnectWithoutTranslationInput | AnswerCreateOrConnectWithoutTranslationInput[]
-    createMany?: AnswerCreateManyTranslationInputEnvelope
+  export type AnswerUncheckedCreateNestedManyWithoutQuestionInput = {
+    create?: XOR<AnswerCreateWithoutQuestionInput, AnswerUncheckedCreateWithoutQuestionInput> | AnswerCreateWithoutQuestionInput[] | AnswerUncheckedCreateWithoutQuestionInput[]
+    connectOrCreate?: AnswerCreateOrConnectWithoutQuestionInput | AnswerCreateOrConnectWithoutQuestionInput[]
+    createMany?: AnswerCreateManyQuestionInputEnvelope
     connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
   }
 
@@ -5554,39 +5645,39 @@ export namespace Prisma {
     set?: string
   }
 
-  export type ClassroomUpdateOneRequiredWithoutTranslationsNestedInput = {
-    create?: XOR<ClassroomCreateWithoutTranslationsInput, ClassroomUncheckedCreateWithoutTranslationsInput>
-    connectOrCreate?: ClassroomCreateOrConnectWithoutTranslationsInput
-    upsert?: ClassroomUpsertWithoutTranslationsInput
+  export type ClassroomUpdateOneRequiredWithoutQuestionsNestedInput = {
+    create?: XOR<ClassroomCreateWithoutQuestionsInput, ClassroomUncheckedCreateWithoutQuestionsInput>
+    connectOrCreate?: ClassroomCreateOrConnectWithoutQuestionsInput
+    upsert?: ClassroomUpsertWithoutQuestionsInput
     connect?: ClassroomWhereUniqueInput
-    update?: XOR<XOR<ClassroomUpdateToOneWithWhereWithoutTranslationsInput, ClassroomUpdateWithoutTranslationsInput>, ClassroomUncheckedUpdateWithoutTranslationsInput>
+    update?: XOR<XOR<ClassroomUpdateToOneWithWhereWithoutQuestionsInput, ClassroomUpdateWithoutQuestionsInput>, ClassroomUncheckedUpdateWithoutQuestionsInput>
   }
 
-  export type AnswerUpdateManyWithoutTranslationNestedInput = {
-    create?: XOR<AnswerCreateWithoutTranslationInput, AnswerUncheckedCreateWithoutTranslationInput> | AnswerCreateWithoutTranslationInput[] | AnswerUncheckedCreateWithoutTranslationInput[]
-    connectOrCreate?: AnswerCreateOrConnectWithoutTranslationInput | AnswerCreateOrConnectWithoutTranslationInput[]
-    upsert?: AnswerUpsertWithWhereUniqueWithoutTranslationInput | AnswerUpsertWithWhereUniqueWithoutTranslationInput[]
-    createMany?: AnswerCreateManyTranslationInputEnvelope
+  export type AnswerUpdateManyWithoutQuestionNestedInput = {
+    create?: XOR<AnswerCreateWithoutQuestionInput, AnswerUncheckedCreateWithoutQuestionInput> | AnswerCreateWithoutQuestionInput[] | AnswerUncheckedCreateWithoutQuestionInput[]
+    connectOrCreate?: AnswerCreateOrConnectWithoutQuestionInput | AnswerCreateOrConnectWithoutQuestionInput[]
+    upsert?: AnswerUpsertWithWhereUniqueWithoutQuestionInput | AnswerUpsertWithWhereUniqueWithoutQuestionInput[]
+    createMany?: AnswerCreateManyQuestionInputEnvelope
     set?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
     disconnect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
     delete?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
     connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
-    update?: AnswerUpdateWithWhereUniqueWithoutTranslationInput | AnswerUpdateWithWhereUniqueWithoutTranslationInput[]
-    updateMany?: AnswerUpdateManyWithWhereWithoutTranslationInput | AnswerUpdateManyWithWhereWithoutTranslationInput[]
+    update?: AnswerUpdateWithWhereUniqueWithoutQuestionInput | AnswerUpdateWithWhereUniqueWithoutQuestionInput[]
+    updateMany?: AnswerUpdateManyWithWhereWithoutQuestionInput | AnswerUpdateManyWithWhereWithoutQuestionInput[]
     deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
   }
 
-  export type AnswerUncheckedUpdateManyWithoutTranslationNestedInput = {
-    create?: XOR<AnswerCreateWithoutTranslationInput, AnswerUncheckedCreateWithoutTranslationInput> | AnswerCreateWithoutTranslationInput[] | AnswerUncheckedCreateWithoutTranslationInput[]
-    connectOrCreate?: AnswerCreateOrConnectWithoutTranslationInput | AnswerCreateOrConnectWithoutTranslationInput[]
-    upsert?: AnswerUpsertWithWhereUniqueWithoutTranslationInput | AnswerUpsertWithWhereUniqueWithoutTranslationInput[]
-    createMany?: AnswerCreateManyTranslationInputEnvelope
+  export type AnswerUncheckedUpdateManyWithoutQuestionNestedInput = {
+    create?: XOR<AnswerCreateWithoutQuestionInput, AnswerUncheckedCreateWithoutQuestionInput> | AnswerCreateWithoutQuestionInput[] | AnswerUncheckedCreateWithoutQuestionInput[]
+    connectOrCreate?: AnswerCreateOrConnectWithoutQuestionInput | AnswerCreateOrConnectWithoutQuestionInput[]
+    upsert?: AnswerUpsertWithWhereUniqueWithoutQuestionInput | AnswerUpsertWithWhereUniqueWithoutQuestionInput[]
+    createMany?: AnswerCreateManyQuestionInputEnvelope
     set?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
     disconnect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
     delete?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
     connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
-    update?: AnswerUpdateWithWhereUniqueWithoutTranslationInput | AnswerUpdateWithWhereUniqueWithoutTranslationInput[]
-    updateMany?: AnswerUpdateManyWithWhereWithoutTranslationInput | AnswerUpdateManyWithWhereWithoutTranslationInput[]
+    update?: AnswerUpdateWithWhereUniqueWithoutQuestionInput | AnswerUpdateWithWhereUniqueWithoutQuestionInput[]
+    updateMany?: AnswerUpdateManyWithWhereWithoutQuestionInput | AnswerUpdateManyWithWhereWithoutQuestionInput[]
     deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
   }
 
@@ -5596,10 +5687,10 @@ export namespace Prisma {
     connect?: ProfileWhereUniqueInput
   }
 
-  export type TranslationCreateNestedOneWithoutAnswersInput = {
-    create?: XOR<TranslationCreateWithoutAnswersInput, TranslationUncheckedCreateWithoutAnswersInput>
-    connectOrCreate?: TranslationCreateOrConnectWithoutAnswersInput
-    connect?: TranslationWhereUniqueInput
+  export type QuestionCreateNestedOneWithoutAnswersInput = {
+    create?: XOR<QuestionCreateWithoutAnswersInput, QuestionUncheckedCreateWithoutAnswersInput>
+    connectOrCreate?: QuestionCreateOrConnectWithoutAnswersInput
+    connect?: QuestionWhereUniqueInput
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -5618,12 +5709,12 @@ export namespace Prisma {
     update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutAnswersInput, ProfileUpdateWithoutAnswersInput>, ProfileUncheckedUpdateWithoutAnswersInput>
   }
 
-  export type TranslationUpdateOneRequiredWithoutAnswersNestedInput = {
-    create?: XOR<TranslationCreateWithoutAnswersInput, TranslationUncheckedCreateWithoutAnswersInput>
-    connectOrCreate?: TranslationCreateOrConnectWithoutAnswersInput
-    upsert?: TranslationUpsertWithoutAnswersInput
-    connect?: TranslationWhereUniqueInput
-    update?: XOR<XOR<TranslationUpdateToOneWithWhereWithoutAnswersInput, TranslationUpdateWithoutAnswersInput>, TranslationUncheckedUpdateWithoutAnswersInput>
+  export type QuestionUpdateOneRequiredWithoutAnswersNestedInput = {
+    create?: XOR<QuestionCreateWithoutAnswersInput, QuestionUncheckedCreateWithoutAnswersInput>
+    connectOrCreate?: QuestionCreateOrConnectWithoutAnswersInput
+    upsert?: QuestionUpsertWithoutAnswersInput
+    connect?: QuestionWhereUniqueInput
+    update?: XOR<XOR<QuestionUpdateToOneWithWhereWithoutAnswersInput, QuestionUpdateWithoutAnswersInput>, QuestionUncheckedUpdateWithoutAnswersInput>
   }
 
   export type AnswerCreateNestedManyWithoutProfileInput = {
@@ -5631,6 +5722,12 @@ export namespace Prisma {
     connectOrCreate?: AnswerCreateOrConnectWithoutProfileInput | AnswerCreateOrConnectWithoutProfileInput[]
     createMany?: AnswerCreateManyProfileInputEnvelope
     connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
+  }
+
+  export type ClassroomCreateNestedOneWithoutProfilesInput = {
+    create?: XOR<ClassroomCreateWithoutProfilesInput, ClassroomUncheckedCreateWithoutProfilesInput>
+    connectOrCreate?: ClassroomCreateOrConnectWithoutProfilesInput
+    connect?: ClassroomWhereUniqueInput
   }
 
   export type AnswerUncheckedCreateNestedManyWithoutProfileInput = {
@@ -5654,6 +5751,14 @@ export namespace Prisma {
     deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
   }
 
+  export type ClassroomUpdateOneRequiredWithoutProfilesNestedInput = {
+    create?: XOR<ClassroomCreateWithoutProfilesInput, ClassroomUncheckedCreateWithoutProfilesInput>
+    connectOrCreate?: ClassroomCreateOrConnectWithoutProfilesInput
+    upsert?: ClassroomUpsertWithoutProfilesInput
+    connect?: ClassroomWhereUniqueInput
+    update?: XOR<XOR<ClassroomUpdateToOneWithWhereWithoutProfilesInput, ClassroomUpdateWithoutProfilesInput>, ClassroomUncheckedUpdateWithoutProfilesInput>
+  }
+
   export type AnswerUncheckedUpdateManyWithoutProfileNestedInput = {
     create?: XOR<AnswerCreateWithoutProfileInput, AnswerUncheckedCreateWithoutProfileInput> | AnswerCreateWithoutProfileInput[] | AnswerUncheckedCreateWithoutProfileInput[]
     connectOrCreate?: AnswerCreateOrConnectWithoutProfileInput | AnswerCreateOrConnectWithoutProfileInput[]
@@ -5668,46 +5773,88 @@ export namespace Prisma {
     deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
   }
 
-  export type TranslationCreateNestedManyWithoutClassroomInput = {
-    create?: XOR<TranslationCreateWithoutClassroomInput, TranslationUncheckedCreateWithoutClassroomInput> | TranslationCreateWithoutClassroomInput[] | TranslationUncheckedCreateWithoutClassroomInput[]
-    connectOrCreate?: TranslationCreateOrConnectWithoutClassroomInput | TranslationCreateOrConnectWithoutClassroomInput[]
-    createMany?: TranslationCreateManyClassroomInputEnvelope
-    connect?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
+  export type QuestionCreateNestedManyWithoutClassroomInput = {
+    create?: XOR<QuestionCreateWithoutClassroomInput, QuestionUncheckedCreateWithoutClassroomInput> | QuestionCreateWithoutClassroomInput[] | QuestionUncheckedCreateWithoutClassroomInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutClassroomInput | QuestionCreateOrConnectWithoutClassroomInput[]
+    createMany?: QuestionCreateManyClassroomInputEnvelope
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
   }
 
-  export type TranslationUncheckedCreateNestedManyWithoutClassroomInput = {
-    create?: XOR<TranslationCreateWithoutClassroomInput, TranslationUncheckedCreateWithoutClassroomInput> | TranslationCreateWithoutClassroomInput[] | TranslationUncheckedCreateWithoutClassroomInput[]
-    connectOrCreate?: TranslationCreateOrConnectWithoutClassroomInput | TranslationCreateOrConnectWithoutClassroomInput[]
-    createMany?: TranslationCreateManyClassroomInputEnvelope
-    connect?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
+  export type ProfileCreateNestedManyWithoutClassroomInput = {
+    create?: XOR<ProfileCreateWithoutClassroomInput, ProfileUncheckedCreateWithoutClassroomInput> | ProfileCreateWithoutClassroomInput[] | ProfileUncheckedCreateWithoutClassroomInput[]
+    connectOrCreate?: ProfileCreateOrConnectWithoutClassroomInput | ProfileCreateOrConnectWithoutClassroomInput[]
+    createMany?: ProfileCreateManyClassroomInputEnvelope
+    connect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
   }
 
-  export type TranslationUpdateManyWithoutClassroomNestedInput = {
-    create?: XOR<TranslationCreateWithoutClassroomInput, TranslationUncheckedCreateWithoutClassroomInput> | TranslationCreateWithoutClassroomInput[] | TranslationUncheckedCreateWithoutClassroomInput[]
-    connectOrCreate?: TranslationCreateOrConnectWithoutClassroomInput | TranslationCreateOrConnectWithoutClassroomInput[]
-    upsert?: TranslationUpsertWithWhereUniqueWithoutClassroomInput | TranslationUpsertWithWhereUniqueWithoutClassroomInput[]
-    createMany?: TranslationCreateManyClassroomInputEnvelope
-    set?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
-    disconnect?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
-    delete?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
-    connect?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
-    update?: TranslationUpdateWithWhereUniqueWithoutClassroomInput | TranslationUpdateWithWhereUniqueWithoutClassroomInput[]
-    updateMany?: TranslationUpdateManyWithWhereWithoutClassroomInput | TranslationUpdateManyWithWhereWithoutClassroomInput[]
-    deleteMany?: TranslationScalarWhereInput | TranslationScalarWhereInput[]
+  export type QuestionUncheckedCreateNestedManyWithoutClassroomInput = {
+    create?: XOR<QuestionCreateWithoutClassroomInput, QuestionUncheckedCreateWithoutClassroomInput> | QuestionCreateWithoutClassroomInput[] | QuestionUncheckedCreateWithoutClassroomInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutClassroomInput | QuestionCreateOrConnectWithoutClassroomInput[]
+    createMany?: QuestionCreateManyClassroomInputEnvelope
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
   }
 
-  export type TranslationUncheckedUpdateManyWithoutClassroomNestedInput = {
-    create?: XOR<TranslationCreateWithoutClassroomInput, TranslationUncheckedCreateWithoutClassroomInput> | TranslationCreateWithoutClassroomInput[] | TranslationUncheckedCreateWithoutClassroomInput[]
-    connectOrCreate?: TranslationCreateOrConnectWithoutClassroomInput | TranslationCreateOrConnectWithoutClassroomInput[]
-    upsert?: TranslationUpsertWithWhereUniqueWithoutClassroomInput | TranslationUpsertWithWhereUniqueWithoutClassroomInput[]
-    createMany?: TranslationCreateManyClassroomInputEnvelope
-    set?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
-    disconnect?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
-    delete?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
-    connect?: TranslationWhereUniqueInput | TranslationWhereUniqueInput[]
-    update?: TranslationUpdateWithWhereUniqueWithoutClassroomInput | TranslationUpdateWithWhereUniqueWithoutClassroomInput[]
-    updateMany?: TranslationUpdateManyWithWhereWithoutClassroomInput | TranslationUpdateManyWithWhereWithoutClassroomInput[]
-    deleteMany?: TranslationScalarWhereInput | TranslationScalarWhereInput[]
+  export type ProfileUncheckedCreateNestedManyWithoutClassroomInput = {
+    create?: XOR<ProfileCreateWithoutClassroomInput, ProfileUncheckedCreateWithoutClassroomInput> | ProfileCreateWithoutClassroomInput[] | ProfileUncheckedCreateWithoutClassroomInput[]
+    connectOrCreate?: ProfileCreateOrConnectWithoutClassroomInput | ProfileCreateOrConnectWithoutClassroomInput[]
+    createMany?: ProfileCreateManyClassroomInputEnvelope
+    connect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+  }
+
+  export type QuestionUpdateManyWithoutClassroomNestedInput = {
+    create?: XOR<QuestionCreateWithoutClassroomInput, QuestionUncheckedCreateWithoutClassroomInput> | QuestionCreateWithoutClassroomInput[] | QuestionUncheckedCreateWithoutClassroomInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutClassroomInput | QuestionCreateOrConnectWithoutClassroomInput[]
+    upsert?: QuestionUpsertWithWhereUniqueWithoutClassroomInput | QuestionUpsertWithWhereUniqueWithoutClassroomInput[]
+    createMany?: QuestionCreateManyClassroomInputEnvelope
+    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    update?: QuestionUpdateWithWhereUniqueWithoutClassroomInput | QuestionUpdateWithWhereUniqueWithoutClassroomInput[]
+    updateMany?: QuestionUpdateManyWithWhereWithoutClassroomInput | QuestionUpdateManyWithWhereWithoutClassroomInput[]
+    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
+  }
+
+  export type ProfileUpdateManyWithoutClassroomNestedInput = {
+    create?: XOR<ProfileCreateWithoutClassroomInput, ProfileUncheckedCreateWithoutClassroomInput> | ProfileCreateWithoutClassroomInput[] | ProfileUncheckedCreateWithoutClassroomInput[]
+    connectOrCreate?: ProfileCreateOrConnectWithoutClassroomInput | ProfileCreateOrConnectWithoutClassroomInput[]
+    upsert?: ProfileUpsertWithWhereUniqueWithoutClassroomInput | ProfileUpsertWithWhereUniqueWithoutClassroomInput[]
+    createMany?: ProfileCreateManyClassroomInputEnvelope
+    set?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    disconnect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    delete?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    connect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    update?: ProfileUpdateWithWhereUniqueWithoutClassroomInput | ProfileUpdateWithWhereUniqueWithoutClassroomInput[]
+    updateMany?: ProfileUpdateManyWithWhereWithoutClassroomInput | ProfileUpdateManyWithWhereWithoutClassroomInput[]
+    deleteMany?: ProfileScalarWhereInput | ProfileScalarWhereInput[]
+  }
+
+  export type QuestionUncheckedUpdateManyWithoutClassroomNestedInput = {
+    create?: XOR<QuestionCreateWithoutClassroomInput, QuestionUncheckedCreateWithoutClassroomInput> | QuestionCreateWithoutClassroomInput[] | QuestionUncheckedCreateWithoutClassroomInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutClassroomInput | QuestionCreateOrConnectWithoutClassroomInput[]
+    upsert?: QuestionUpsertWithWhereUniqueWithoutClassroomInput | QuestionUpsertWithWhereUniqueWithoutClassroomInput[]
+    createMany?: QuestionCreateManyClassroomInputEnvelope
+    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    update?: QuestionUpdateWithWhereUniqueWithoutClassroomInput | QuestionUpdateWithWhereUniqueWithoutClassroomInput[]
+    updateMany?: QuestionUpdateManyWithWhereWithoutClassroomInput | QuestionUpdateManyWithWhereWithoutClassroomInput[]
+    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
+  }
+
+  export type ProfileUncheckedUpdateManyWithoutClassroomNestedInput = {
+    create?: XOR<ProfileCreateWithoutClassroomInput, ProfileUncheckedCreateWithoutClassroomInput> | ProfileCreateWithoutClassroomInput[] | ProfileUncheckedCreateWithoutClassroomInput[]
+    connectOrCreate?: ProfileCreateOrConnectWithoutClassroomInput | ProfileCreateOrConnectWithoutClassroomInput[]
+    upsert?: ProfileUpsertWithWhereUniqueWithoutClassroomInput | ProfileUpsertWithWhereUniqueWithoutClassroomInput[]
+    createMany?: ProfileCreateManyClassroomInputEnvelope
+    set?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    disconnect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    delete?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    connect?: ProfileWhereUniqueInput | ProfileWhereUniqueInput[]
+    update?: ProfileUpdateWithWhereUniqueWithoutClassroomInput | ProfileUpdateWithWhereUniqueWithoutClassroomInput[]
+    updateMany?: ProfileUpdateManyWithWhereWithoutClassroomInput | ProfileUpdateManyWithWhereWithoutClassroomInput[]
+    deleteMany?: ProfileScalarWhereInput | ProfileScalarWhereInput[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5790,79 +5937,87 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type ClassroomCreateWithoutTranslationsInput = {
+  export type ClassroomCreateWithoutQuestionsInput = {
     id?: string
     name: string
+    lastUpdated: Date | string
+    profiles?: ProfileCreateNestedManyWithoutClassroomInput
   }
 
-  export type ClassroomUncheckedCreateWithoutTranslationsInput = {
+  export type ClassroomUncheckedCreateWithoutQuestionsInput = {
     id?: string
     name: string
+    lastUpdated: Date | string
+    profiles?: ProfileUncheckedCreateNestedManyWithoutClassroomInput
   }
 
-  export type ClassroomCreateOrConnectWithoutTranslationsInput = {
+  export type ClassroomCreateOrConnectWithoutQuestionsInput = {
     where: ClassroomWhereUniqueInput
-    create: XOR<ClassroomCreateWithoutTranslationsInput, ClassroomUncheckedCreateWithoutTranslationsInput>
+    create: XOR<ClassroomCreateWithoutQuestionsInput, ClassroomUncheckedCreateWithoutQuestionsInput>
   }
 
-  export type AnswerCreateWithoutTranslationInput = {
+  export type AnswerCreateWithoutQuestionInput = {
     value: string
     date: Date | string
     isCorrect: boolean
     profile?: ProfileCreateNestedOneWithoutAnswersInput
   }
 
-  export type AnswerUncheckedCreateWithoutTranslationInput = {
+  export type AnswerUncheckedCreateWithoutQuestionInput = {
     value: string
     date: Date | string
     isCorrect: boolean
   }
 
-  export type AnswerCreateOrConnectWithoutTranslationInput = {
+  export type AnswerCreateOrConnectWithoutQuestionInput = {
     where: AnswerWhereUniqueInput
-    create: XOR<AnswerCreateWithoutTranslationInput, AnswerUncheckedCreateWithoutTranslationInput>
+    create: XOR<AnswerCreateWithoutQuestionInput, AnswerUncheckedCreateWithoutQuestionInput>
   }
 
-  export type AnswerCreateManyTranslationInputEnvelope = {
-    data: AnswerCreateManyTranslationInput | AnswerCreateManyTranslationInput[]
+  export type AnswerCreateManyQuestionInputEnvelope = {
+    data: AnswerCreateManyQuestionInput | AnswerCreateManyQuestionInput[]
     skipDuplicates?: boolean
   }
 
-  export type ClassroomUpsertWithoutTranslationsInput = {
-    update: XOR<ClassroomUpdateWithoutTranslationsInput, ClassroomUncheckedUpdateWithoutTranslationsInput>
-    create: XOR<ClassroomCreateWithoutTranslationsInput, ClassroomUncheckedCreateWithoutTranslationsInput>
+  export type ClassroomUpsertWithoutQuestionsInput = {
+    update: XOR<ClassroomUpdateWithoutQuestionsInput, ClassroomUncheckedUpdateWithoutQuestionsInput>
+    create: XOR<ClassroomCreateWithoutQuestionsInput, ClassroomUncheckedCreateWithoutQuestionsInput>
     where?: ClassroomWhereInput
   }
 
-  export type ClassroomUpdateToOneWithWhereWithoutTranslationsInput = {
+  export type ClassroomUpdateToOneWithWhereWithoutQuestionsInput = {
     where?: ClassroomWhereInput
-    data: XOR<ClassroomUpdateWithoutTranslationsInput, ClassroomUncheckedUpdateWithoutTranslationsInput>
+    data: XOR<ClassroomUpdateWithoutQuestionsInput, ClassroomUncheckedUpdateWithoutQuestionsInput>
   }
 
-  export type ClassroomUpdateWithoutTranslationsInput = {
+  export type ClassroomUpdateWithoutQuestionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    profiles?: ProfileUpdateManyWithoutClassroomNestedInput
   }
 
-  export type ClassroomUncheckedUpdateWithoutTranslationsInput = {
+  export type ClassroomUncheckedUpdateWithoutQuestionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    profiles?: ProfileUncheckedUpdateManyWithoutClassroomNestedInput
   }
 
-  export type AnswerUpsertWithWhereUniqueWithoutTranslationInput = {
+  export type AnswerUpsertWithWhereUniqueWithoutQuestionInput = {
     where: AnswerWhereUniqueInput
-    update: XOR<AnswerUpdateWithoutTranslationInput, AnswerUncheckedUpdateWithoutTranslationInput>
-    create: XOR<AnswerCreateWithoutTranslationInput, AnswerUncheckedCreateWithoutTranslationInput>
+    update: XOR<AnswerUpdateWithoutQuestionInput, AnswerUncheckedUpdateWithoutQuestionInput>
+    create: XOR<AnswerCreateWithoutQuestionInput, AnswerUncheckedCreateWithoutQuestionInput>
   }
 
-  export type AnswerUpdateWithWhereUniqueWithoutTranslationInput = {
+  export type AnswerUpdateWithWhereUniqueWithoutQuestionInput = {
     where: AnswerWhereUniqueInput
-    data: XOR<AnswerUpdateWithoutTranslationInput, AnswerUncheckedUpdateWithoutTranslationInput>
+    data: XOR<AnswerUpdateWithoutQuestionInput, AnswerUncheckedUpdateWithoutQuestionInput>
   }
 
-  export type AnswerUpdateManyWithWhereWithoutTranslationInput = {
+  export type AnswerUpdateManyWithWhereWithoutQuestionInput = {
     where: AnswerScalarWhereInput
-    data: XOR<AnswerUpdateManyMutationInput, AnswerUncheckedUpdateManyWithoutTranslationInput>
+    data: XOR<AnswerUpdateManyMutationInput, AnswerUncheckedUpdateManyWithoutQuestionInput>
   }
 
   export type AnswerScalarWhereInput = {
@@ -5876,8 +6031,8 @@ export namespace Prisma {
   }
 
   export type ProfileCreateWithoutAnswersInput = {
-    id?: string
     name: string
+    classroom?: ClassroomCreateNestedOneWithoutProfilesInput
   }
 
   export type ProfileUncheckedCreateWithoutAnswersInput = {
@@ -5890,21 +6045,21 @@ export namespace Prisma {
     create: XOR<ProfileCreateWithoutAnswersInput, ProfileUncheckedCreateWithoutAnswersInput>
   }
 
-  export type TranslationCreateWithoutAnswersInput = {
-    original: string
-    translated: string
-    classroom?: ClassroomCreateNestedOneWithoutTranslationsInput
+  export type QuestionCreateWithoutAnswersInput = {
+    question: string
+    correctAnswer: string
+    classroom?: ClassroomCreateNestedOneWithoutQuestionsInput
   }
 
-  export type TranslationUncheckedCreateWithoutAnswersInput = {
+  export type QuestionUncheckedCreateWithoutAnswersInput = {
     id?: string
-    original: string
-    translated: string
+    question: string
+    correctAnswer: string
   }
 
-  export type TranslationCreateOrConnectWithoutAnswersInput = {
-    where: TranslationWhereUniqueInput
-    create: XOR<TranslationCreateWithoutAnswersInput, TranslationUncheckedCreateWithoutAnswersInput>
+  export type QuestionCreateOrConnectWithoutAnswersInput = {
+    where: QuestionWhereUniqueInput
+    create: XOR<QuestionCreateWithoutAnswersInput, QuestionUncheckedCreateWithoutAnswersInput>
   }
 
   export type ProfileUpsertWithoutAnswersInput = {
@@ -5919,8 +6074,8 @@ export namespace Prisma {
   }
 
   export type ProfileUpdateWithoutAnswersInput = {
-    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    classroom?: ClassroomUpdateOneRequiredWithoutProfilesNestedInput
   }
 
   export type ProfileUncheckedUpdateWithoutAnswersInput = {
@@ -5928,34 +6083,34 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type TranslationUpsertWithoutAnswersInput = {
-    update: XOR<TranslationUpdateWithoutAnswersInput, TranslationUncheckedUpdateWithoutAnswersInput>
-    create: XOR<TranslationCreateWithoutAnswersInput, TranslationUncheckedCreateWithoutAnswersInput>
-    where?: TranslationWhereInput
+  export type QuestionUpsertWithoutAnswersInput = {
+    update: XOR<QuestionUpdateWithoutAnswersInput, QuestionUncheckedUpdateWithoutAnswersInput>
+    create: XOR<QuestionCreateWithoutAnswersInput, QuestionUncheckedCreateWithoutAnswersInput>
+    where?: QuestionWhereInput
   }
 
-  export type TranslationUpdateToOneWithWhereWithoutAnswersInput = {
-    where?: TranslationWhereInput
-    data: XOR<TranslationUpdateWithoutAnswersInput, TranslationUncheckedUpdateWithoutAnswersInput>
+  export type QuestionUpdateToOneWithWhereWithoutAnswersInput = {
+    where?: QuestionWhereInput
+    data: XOR<QuestionUpdateWithoutAnswersInput, QuestionUncheckedUpdateWithoutAnswersInput>
   }
 
-  export type TranslationUpdateWithoutAnswersInput = {
-    original?: StringFieldUpdateOperationsInput | string
-    translated?: StringFieldUpdateOperationsInput | string
-    classroom?: ClassroomUpdateOneRequiredWithoutTranslationsNestedInput
+  export type QuestionUpdateWithoutAnswersInput = {
+    question?: StringFieldUpdateOperationsInput | string
+    correctAnswer?: StringFieldUpdateOperationsInput | string
+    classroom?: ClassroomUpdateOneRequiredWithoutQuestionsNestedInput
   }
 
-  export type TranslationUncheckedUpdateWithoutAnswersInput = {
+  export type QuestionUncheckedUpdateWithoutAnswersInput = {
     id?: StringFieldUpdateOperationsInput | string
-    original?: StringFieldUpdateOperationsInput | string
-    translated?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    correctAnswer?: StringFieldUpdateOperationsInput | string
   }
 
   export type AnswerCreateWithoutProfileInput = {
     value: string
     date: Date | string
     isCorrect: boolean
-    translation?: TranslationCreateNestedOneWithoutAnswersInput
+    question?: QuestionCreateNestedOneWithoutAnswersInput
   }
 
   export type AnswerUncheckedCreateWithoutProfileInput = {
@@ -5974,6 +6129,25 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type ClassroomCreateWithoutProfilesInput = {
+    id?: string
+    name: string
+    lastUpdated: Date | string
+    questions?: QuestionCreateNestedManyWithoutClassroomInput
+  }
+
+  export type ClassroomUncheckedCreateWithoutProfilesInput = {
+    id?: string
+    name: string
+    lastUpdated: Date | string
+    questions?: QuestionUncheckedCreateNestedManyWithoutClassroomInput
+  }
+
+  export type ClassroomCreateOrConnectWithoutProfilesInput = {
+    where: ClassroomWhereUniqueInput
+    create: XOR<ClassroomCreateWithoutProfilesInput, ClassroomUncheckedCreateWithoutProfilesInput>
+  }
+
   export type AnswerUpsertWithWhereUniqueWithoutProfileInput = {
     where: AnswerWhereUniqueInput
     update: XOR<AnswerUpdateWithoutProfileInput, AnswerUncheckedUpdateWithoutProfileInput>
@@ -5990,73 +6164,142 @@ export namespace Prisma {
     data: XOR<AnswerUpdateManyMutationInput, AnswerUncheckedUpdateManyWithoutProfileInput>
   }
 
-  export type TranslationCreateWithoutClassroomInput = {
-    original: string
-    translated: string
-    answers?: AnswerCreateNestedManyWithoutTranslationInput
+  export type ClassroomUpsertWithoutProfilesInput = {
+    update: XOR<ClassroomUpdateWithoutProfilesInput, ClassroomUncheckedUpdateWithoutProfilesInput>
+    create: XOR<ClassroomCreateWithoutProfilesInput, ClassroomUncheckedCreateWithoutProfilesInput>
+    where?: ClassroomWhereInput
   }
 
-  export type TranslationUncheckedCreateWithoutClassroomInput = {
-    original: string
-    translated: string
-    answers?: AnswerUncheckedCreateNestedManyWithoutTranslationInput
+  export type ClassroomUpdateToOneWithWhereWithoutProfilesInput = {
+    where?: ClassroomWhereInput
+    data: XOR<ClassroomUpdateWithoutProfilesInput, ClassroomUncheckedUpdateWithoutProfilesInput>
   }
 
-  export type TranslationCreateOrConnectWithoutClassroomInput = {
-    where: TranslationWhereUniqueInput
-    create: XOR<TranslationCreateWithoutClassroomInput, TranslationUncheckedCreateWithoutClassroomInput>
+  export type ClassroomUpdateWithoutProfilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    questions?: QuestionUpdateManyWithoutClassroomNestedInput
   }
 
-  export type TranslationCreateManyClassroomInputEnvelope = {
-    data: TranslationCreateManyClassroomInput | TranslationCreateManyClassroomInput[]
+  export type ClassroomUncheckedUpdateWithoutProfilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    questions?: QuestionUncheckedUpdateManyWithoutClassroomNestedInput
+  }
+
+  export type QuestionCreateWithoutClassroomInput = {
+    question: string
+    correctAnswer: string
+    answers?: AnswerCreateNestedManyWithoutQuestionInput
+  }
+
+  export type QuestionUncheckedCreateWithoutClassroomInput = {
+    question: string
+    correctAnswer: string
+    answers?: AnswerUncheckedCreateNestedManyWithoutQuestionInput
+  }
+
+  export type QuestionCreateOrConnectWithoutClassroomInput = {
+    where: QuestionWhereUniqueInput
+    create: XOR<QuestionCreateWithoutClassroomInput, QuestionUncheckedCreateWithoutClassroomInput>
+  }
+
+  export type QuestionCreateManyClassroomInputEnvelope = {
+    data: QuestionCreateManyClassroomInput | QuestionCreateManyClassroomInput[]
     skipDuplicates?: boolean
   }
 
-  export type TranslationUpsertWithWhereUniqueWithoutClassroomInput = {
-    where: TranslationWhereUniqueInput
-    update: XOR<TranslationUpdateWithoutClassroomInput, TranslationUncheckedUpdateWithoutClassroomInput>
-    create: XOR<TranslationCreateWithoutClassroomInput, TranslationUncheckedCreateWithoutClassroomInput>
+  export type ProfileCreateWithoutClassroomInput = {
+    name: string
+    answers?: AnswerCreateNestedManyWithoutProfileInput
   }
 
-  export type TranslationUpdateWithWhereUniqueWithoutClassroomInput = {
-    where: TranslationWhereUniqueInput
-    data: XOR<TranslationUpdateWithoutClassroomInput, TranslationUncheckedUpdateWithoutClassroomInput>
+  export type ProfileUncheckedCreateWithoutClassroomInput = {
+    name: string
+    answers?: AnswerUncheckedCreateNestedManyWithoutProfileInput
   }
 
-  export type TranslationUpdateManyWithWhereWithoutClassroomInput = {
-    where: TranslationScalarWhereInput
-    data: XOR<TranslationUpdateManyMutationInput, TranslationUncheckedUpdateManyWithoutClassroomInput>
+  export type ProfileCreateOrConnectWithoutClassroomInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutClassroomInput, ProfileUncheckedCreateWithoutClassroomInput>
   }
 
-  export type TranslationScalarWhereInput = {
-    AND?: TranslationScalarWhereInput | TranslationScalarWhereInput[]
-    OR?: TranslationScalarWhereInput[]
-    NOT?: TranslationScalarWhereInput | TranslationScalarWhereInput[]
-    id?: StringFilter<"Translation"> | string
-    original?: StringFilter<"Translation"> | string
-    translated?: StringFilter<"Translation"> | string
+  export type ProfileCreateManyClassroomInputEnvelope = {
+    data: ProfileCreateManyClassroomInput | ProfileCreateManyClassroomInput[]
+    skipDuplicates?: boolean
   }
 
-  export type AnswerCreateManyTranslationInput = {
+  export type QuestionUpsertWithWhereUniqueWithoutClassroomInput = {
+    where: QuestionWhereUniqueInput
+    update: XOR<QuestionUpdateWithoutClassroomInput, QuestionUncheckedUpdateWithoutClassroomInput>
+    create: XOR<QuestionCreateWithoutClassroomInput, QuestionUncheckedCreateWithoutClassroomInput>
+  }
+
+  export type QuestionUpdateWithWhereUniqueWithoutClassroomInput = {
+    where: QuestionWhereUniqueInput
+    data: XOR<QuestionUpdateWithoutClassroomInput, QuestionUncheckedUpdateWithoutClassroomInput>
+  }
+
+  export type QuestionUpdateManyWithWhereWithoutClassroomInput = {
+    where: QuestionScalarWhereInput
+    data: XOR<QuestionUpdateManyMutationInput, QuestionUncheckedUpdateManyWithoutClassroomInput>
+  }
+
+  export type QuestionScalarWhereInput = {
+    AND?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
+    OR?: QuestionScalarWhereInput[]
+    NOT?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
+    id?: StringFilter<"Question"> | string
+    question?: StringFilter<"Question"> | string
+    correctAnswer?: StringFilter<"Question"> | string
+  }
+
+  export type ProfileUpsertWithWhereUniqueWithoutClassroomInput = {
+    where: ProfileWhereUniqueInput
+    update: XOR<ProfileUpdateWithoutClassroomInput, ProfileUncheckedUpdateWithoutClassroomInput>
+    create: XOR<ProfileCreateWithoutClassroomInput, ProfileUncheckedCreateWithoutClassroomInput>
+  }
+
+  export type ProfileUpdateWithWhereUniqueWithoutClassroomInput = {
+    where: ProfileWhereUniqueInput
+    data: XOR<ProfileUpdateWithoutClassroomInput, ProfileUncheckedUpdateWithoutClassroomInput>
+  }
+
+  export type ProfileUpdateManyWithWhereWithoutClassroomInput = {
+    where: ProfileScalarWhereInput
+    data: XOR<ProfileUpdateManyMutationInput, ProfileUncheckedUpdateManyWithoutClassroomInput>
+  }
+
+  export type ProfileScalarWhereInput = {
+    AND?: ProfileScalarWhereInput | ProfileScalarWhereInput[]
+    OR?: ProfileScalarWhereInput[]
+    NOT?: ProfileScalarWhereInput | ProfileScalarWhereInput[]
+    id?: StringFilter<"Profile"> | string
+    name?: StringFilter<"Profile"> | string
+  }
+
+  export type AnswerCreateManyQuestionInput = {
     value: string
     date: Date | string
     isCorrect: boolean
   }
 
-  export type AnswerUpdateWithoutTranslationInput = {
+  export type AnswerUpdateWithoutQuestionInput = {
     value?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     isCorrect?: BoolFieldUpdateOperationsInput | boolean
     profile?: ProfileUpdateOneRequiredWithoutAnswersNestedInput
   }
 
-  export type AnswerUncheckedUpdateWithoutTranslationInput = {
+  export type AnswerUncheckedUpdateWithoutQuestionInput = {
     value?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     isCorrect?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type AnswerUncheckedUpdateManyWithoutTranslationInput = {
+  export type AnswerUncheckedUpdateManyWithoutQuestionInput = {
     value?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     isCorrect?: BoolFieldUpdateOperationsInput | boolean
@@ -6072,7 +6315,7 @@ export namespace Prisma {
     value?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     isCorrect?: BoolFieldUpdateOperationsInput | boolean
-    translation?: TranslationUpdateOneRequiredWithoutAnswersNestedInput
+    question?: QuestionUpdateOneRequiredWithoutAnswersNestedInput
   }
 
   export type AnswerUncheckedUpdateWithoutProfileInput = {
@@ -6087,26 +6330,44 @@ export namespace Prisma {
     isCorrect?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type TranslationCreateManyClassroomInput = {
-    original: string
-    translated: string
+  export type QuestionCreateManyClassroomInput = {
+    question: string
+    correctAnswer: string
   }
 
-  export type TranslationUpdateWithoutClassroomInput = {
-    original?: StringFieldUpdateOperationsInput | string
-    translated?: StringFieldUpdateOperationsInput | string
-    answers?: AnswerUpdateManyWithoutTranslationNestedInput
+  export type ProfileCreateManyClassroomInput = {
+    name: string
   }
 
-  export type TranslationUncheckedUpdateWithoutClassroomInput = {
-    original?: StringFieldUpdateOperationsInput | string
-    translated?: StringFieldUpdateOperationsInput | string
-    answers?: AnswerUncheckedUpdateManyWithoutTranslationNestedInput
+  export type QuestionUpdateWithoutClassroomInput = {
+    question?: StringFieldUpdateOperationsInput | string
+    correctAnswer?: StringFieldUpdateOperationsInput | string
+    answers?: AnswerUpdateManyWithoutQuestionNestedInput
   }
 
-  export type TranslationUncheckedUpdateManyWithoutClassroomInput = {
-    original?: StringFieldUpdateOperationsInput | string
-    translated?: StringFieldUpdateOperationsInput | string
+  export type QuestionUncheckedUpdateWithoutClassroomInput = {
+    question?: StringFieldUpdateOperationsInput | string
+    correctAnswer?: StringFieldUpdateOperationsInput | string
+    answers?: AnswerUncheckedUpdateManyWithoutQuestionNestedInput
+  }
+
+  export type QuestionUncheckedUpdateManyWithoutClassroomInput = {
+    question?: StringFieldUpdateOperationsInput | string
+    correctAnswer?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfileUpdateWithoutClassroomInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    answers?: AnswerUpdateManyWithoutProfileNestedInput
+  }
+
+  export type ProfileUncheckedUpdateWithoutClassroomInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    answers?: AnswerUncheckedUpdateManyWithoutProfileNestedInput
+  }
+
+  export type ProfileUncheckedUpdateManyWithoutClassroomInput = {
+    name?: StringFieldUpdateOperationsInput | string
   }
 
 
@@ -6115,9 +6376,9 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use TranslationCountOutputTypeDefaultArgs instead
+     * @deprecated Use QuestionCountOutputTypeDefaultArgs instead
      */
-    export type TranslationCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TranslationCountOutputTypeDefaultArgs<ExtArgs>
+    export type QuestionCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = QuestionCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use ProfileCountOutputTypeDefaultArgs instead
      */
@@ -6127,9 +6388,9 @@ export namespace Prisma {
      */
     export type ClassroomCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ClassroomCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use TranslationDefaultArgs instead
+     * @deprecated Use QuestionDefaultArgs instead
      */
-    export type TranslationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TranslationDefaultArgs<ExtArgs>
+    export type QuestionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = QuestionDefaultArgs<ExtArgs>
     /**
      * @deprecated Use AnswerDefaultArgs instead
      */

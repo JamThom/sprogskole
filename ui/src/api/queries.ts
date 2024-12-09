@@ -1,11 +1,11 @@
 import { gql } from '@apollo/client';
 
-export const GET_TRANSLATIONS = gql`
-  query classrooms {
-    translations {
+export const GET_QUESTIONS = gql`
+  query GetQuestions {
+    questions {
       id
       original
-      translated
+      correctAnswer
       classroomId
     }
   }
@@ -21,10 +21,10 @@ export const GET_CLASSROOMS = gql`
 `;
 
 export const GET_ANSWERS = gql`
-  query classrooms {
+  query GetAnswers {
     answers {
       id
-      translationId
+      questionId
       value
       isCorrect
       date
@@ -33,38 +33,39 @@ export const GET_ANSWERS = gql`
 `;
 
 export const ADD_ANSWER = gql`
-  mutation AddAnswer($translationId: ID!, $value: String!) {
-    addAnswer(translationId: $translationId, value: $value) {
+  mutation AddAnswer($questionId: ID!, $value: String!) {
+    addAnswer(questionId: $questionId, value: $value) {
       success
     }
   }
 `;
 
-export const ADD_TRANSLATION = gql`
-  mutation AddTranslation($original: String!, $classroomId: String!) {
-    addTranslation(original: $original, classroomId: $classroomId) {
+export const ADD_QUESTION = gql`
+  mutation AddQuestion($original: String!, $classroomId: String!) {
+    addQuestion(original: $original, classroomId: $classroomId) {
       id
       original
-      translated
+      correctAnswer
     }
   }
 `;
 
-export const UPDATE_TRANSLATION = gql`
-  mutation UpdateTranslation($id: String!, $value: String!) {
-    updateTranslation(id: $id, value: $value) {
+export const UPDATE_QUESTION = gql`
+  mutation UpdateQuestion($id: String!, $value: String!) {
+    updateQuestion(id: $id, value: $value) {
       id
       original
-      translated
+      correctAnswer
     }
   }
 `;
 
 export const ADD_CLASSROOM = gql`
-  mutation AddClassroom($name: String!) {
-    addClassroom(name: $name) {
+mutation AddClassroom($name: String!) {
+  addClassroom(name: $name) {
       id
       name
-    }
+      lastUpdated
   }
+}
 `;

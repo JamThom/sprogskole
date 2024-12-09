@@ -22,10 +22,11 @@ export const successToast = () => {
   })
 };
 
-export const failToast = () => {
+export const failToast = ({ title, description }: { title?: string; description?: string }) => {
   toaster.create({
-    description: "File saved successfully",
-    type: "info",
+    title,
+    description,
+    type: "error",
     duration: 50000,
   })
 };

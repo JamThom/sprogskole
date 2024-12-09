@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   Box,
@@ -8,17 +8,7 @@ import {
   MenuContent,
   MenuItem,
 } from "@chakra-ui/react";
-
-const classrooms = [
-  {
-    id: "abc",
-    name: "Classroom 1",
-  },
-  {
-    id: "def",
-    name: "Classroom 2",
-  },
-];
+import useGetClassrooms from "@/api/use-get-classrooms";
 
 const ClassroomSelect: React.FC = () => {
   const { classroomId } = useParams<{ classroomId: string }>();
@@ -28,7 +18,14 @@ const ClassroomSelect: React.FC = () => {
     navigate(`/classroom/${classroomId}`);
   };
 
-  const currentClassroom = classrooms.find((c) => c.id === classroomId);
+  const { classrooms, loading } = useGetClassrooms();
+
+  const currentClassroom = useMemo(() => {
+    if (Array.isArray(classrooms)) {
+      return classrooms.find((classroom) => classroom.id === classroomId);
+    }
+    return null;
+  }, [classrooms, classroomId]);
 
   return (
     <Box>
@@ -37,15 +34,25 @@ const ClassroomSelect: React.FC = () => {
       }}>
         <MenuTrigger asChild>
           <Button variant="outline" size="sm">
-            {currentClassroom?.name || "Select Classroom"}
+            {currentClassroom?.name || "..."}
           </Button>
         </MenuTrigger>
         <MenuContent>
-          <MenuItem value="new-txt">New Text File</MenuItem>
-          <MenuItem value="new-file">New File...</MenuItem>
-          <MenuItem value="new-win">New Window</MenuItem>
-          <MenuItem value="open-file">Open File...</MenuItem>
-          <MenuItem value="export">Export</MenuItem>
+          {loading ? (
+            <MenuItem value="loading">
+              Loading...
+            </MenuItem>
+          ) : Array.isArray(classrooms) ? (
+            classrooms.map((classroom) => (
+              <MenuItem key={classroom.id} value={classroom.id}>
+                {classroom.name}
+              </MenuItem>
+            ))
+          ) : (
+            <MenuItem value="no-classrooms">
+              No classrooms found
+            </MenuItem>
+          )}
         </MenuContent>
       </MenuRoot>
     </Box>

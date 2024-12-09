@@ -10,7 +10,7 @@
     "baseUrl": "./",
     "paths": {
       "*": ["node_modules/*"],
-      "*.graphql": ["src/queries/translation/*.graphql"],
+      "*.graphql": ["src/schema/*.graphql"],
       "@/*": ["./src/*"]
     }
   },

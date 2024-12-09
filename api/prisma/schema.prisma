@@ -8,18 +8,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Translation {
+model Question {
   id        String      @id @default(uuid())
   classroom     Classroom @relation(fields: [id], references: [id])
-  original  String
-  translated String
+  question  String
+  correctAnswer    String
   answers   Answer[]
 }
 
 model Answer {
   id        String      @id @default(uuid())
   profile   Profile  @relation(fields: [id], references: [id], map: "Answer_profileId_fkey")
-  translation Translation @relation(fields: [id], references: [id], map: "Answer_translationId_fkey")
+  question  Question @relation(fields: [id], references: [id], map: "Answer_questionId_fkey")
   value     String
   date      DateTime
   isCorrect Boolean
@@ -35,7 +35,7 @@ model Profile {
 model Classroom {
   id      String      @id @default(uuid())
   name    String
-  translations Translation[]
+  questions Question[]
   profiles Profile[]
   lastUpdated DateTime
 }

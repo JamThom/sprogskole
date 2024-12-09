@@ -1,14 +1,14 @@
 import { useMutation } from "@apollo/client";
 import { ADD_ANSWER } from "./queries";
-import { Answer } from './types/queries';
+import { Answer } from './query-types';
 
 const useAddAnswer = () => {
   const [addAnswer, result] = useMutation<Answer>(ADD_ANSWER);
 
-  const add = async (translationId: string, value: string) => {
+  const add = async (questionId: string, value: string) => {
     await addAnswer({
       variables: { 
-        translationId,
+        questionId,
         value,
        },
     });

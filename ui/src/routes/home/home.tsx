@@ -4,24 +4,31 @@ import { Heading, HStack, VStack, Spinner, Alert } from "@chakra-ui/react";
 import ClassroomsTable from "./classrooms-table/classrooms-table";
 
 const Home = () => {
-  const classrooms = useGetClassrooms();
+  const { classrooms, error, loading } = useGetClassrooms();
+
+  console.log(classrooms);
 
   return (
-    <VStack width="xl">
+    <VStack height="80vh" width="xl">
       <HStack width="100%" justifyContent="space-between">
         <Heading>Classrooms</Heading>
         <AddClassroomModal />
       </HStack>
-      {classrooms.loading && <Spinner />}
-      {classrooms.error && (
-        <Alert.Root>
-          <Alert.Title>
-            {classrooms.error.message}
-          </Alert.Title>
+      {loading && <Spinner m="auto" />}
+      {error && (
+        <Alert.Root status="error">
+          <Alert.Title>{error.message}</Alert.Title>
         </Alert.Root>
       )}
 
-      {Array.isArray(classrooms.data) && <ClassroomsTable classrooms={classrooms.data} />}
+      {Array.isArray(classrooms) &&
+        (classrooms?.length === 0 ? (
+          <Alert.Root status="info">
+            <Alert.Title>No classrooms found</Alert.Title>
+          </Alert.Root>
+        ) : (
+          <ClassroomsTable classrooms={classrooms} />
+        ))}
     </VStack>
   );
 };

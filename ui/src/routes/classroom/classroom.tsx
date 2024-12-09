@@ -1,32 +1,48 @@
-import { Grid, Heading, Flex } from "@chakra-ui/react";
-import useTranslationsContext from "../../translations-context/translations-provider";
-import useGetTranslationById from "../../utils/get-translation-by-id";
+import { Grid, Heading, Spinner, Alert } from "@chakra-ui/react";
+import useQuestionsContext, { QuestionsProvider } from "../../questions-context/questions-provider";
+import useGetQuestionById from "../../utils/get-question-by-id";
 import WordButton from "./word-button/word-button";
 import Stats from "./stats/stats";
+import { useMemo } from "react";
 
 const Classroom = () => {
-  const { currentTranslation, possibleTranslations, translationsLoaded } =
-    useTranslationsContext().state;
+  const { currentQuestion, questions, isLoaded } = useQuestionsContext();
 
-  const getTranslationById = useGetTranslationById();
+  const getQuestionById = useGetQuestionById();
 
-  return translationsLoaded ? (
+  const possibleAnswers = useMemo(() => {
+    const currentQuestionObj = getQuestionById(currentQuestion);
+    const possibleAnswers = new Set([currentQuestionObj]);
+    while (possibleAnswers.size < 9) {
+      const randomQuestion = questions[Math.floor(Math.random() * questions.length)].id;
+      possibleAnswers.add(randomQuestion);
+    }
+    return Array.from(possibleAnswers);
+  }, [currentQuestion, questions]);
+
+  return isLoaded ? Array.isArray(questions) && questions?.length > 0 ? (
     <>
-      <Flex direction="column" align="center" justify="center" height="100vh">
-        <Stats />
-        <Heading mb={8}>
-          {getTranslationById(currentTranslation).original}
-        </Heading>
-        <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-          {possibleTranslations.map((item) => (
-            <WordButton translationId={item} key={item} />
-          ))}
-        </Grid>
-      </Flex>
+      <Stats />
+      <Heading mb={8}>
+        {getQuestionById(currentQuestion).original}
+      </Heading>
+      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+        {possibleAnswers.map((item) => (
+          <WordButton questionId={item} key={item} />
+        ))}
+      </Grid>
     </>
   ) : (
-    <Heading>Loading...</Heading>
+    <Alert.Root status="info">
+      <Alert.Title>No questions fond</Alert.Title>
+    </Alert.Root>
+  ) : (
+    <Spinner />
   );
 };
 
-export default Classroom;
+export default () => (
+  <QuestionsProvider>
+    <Classroom />
+  </QuestionsProvider>
+);

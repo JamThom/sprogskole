@@ -3,24 +3,24 @@ import prisma from "../../client/client";
 import { Answer } from "@prisma/client";
 
 const Mutation = {
-    async addAnswer (translationId: string, value: string): AsyncResponse<boolean> {
-        const translation = await prisma.translation.findUnique({
+    async addAnswer (questionId: string, value: string): AsyncResponse<boolean> {
+        const question = await prisma.question.findUnique({
             where: {
-                id: translationId,
+                id: questionId,
             },
         });
-        if (!translation) {
+        if (!question) {
             return {
                 success: false,
-                error: new Error('Translation not found'),
+                error: new Error('Question not found'),
             };
         }
-        const isCorrect = translation?.translated === value;
+        const isCorrect = question?.correctAnswer === value;
         prisma.answer.create({
             data: {
-                translation: {
+                question: {
                     connect: {
-                        id: translationId,
+                        id: questionId,
                     },
                 },
                 value,
@@ -48,4 +48,4 @@ const Query = {
 export default {
     Query,
     Mutation
-  } as Resolver;
+  };

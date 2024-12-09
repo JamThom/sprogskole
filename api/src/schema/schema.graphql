@@ -1,9 +1,9 @@
 scalar String
 
-type Translation {
+type Question {
   id: ID!
   original: String!
-  translated: String!
+  correctAnswer: String!
   classroomId: String!
 }
 
@@ -20,35 +20,34 @@ type Profile {
 }
 
 type ClassroomStatistics {
-  translations: Int!
+  questions: Int!
   correctAnswers: Int!
   incorrectAnswers: Int!
 }
 
 type Answer {
   id: ID!
-  translationId: ID!
+  questionId: ID!
   value: String!
   isCorrect: Boolean!
   date: String!
 }
 
-type TranslationGroup {
+type QuestionGroup {
   id: String!
   name: String!
 }
 
 type Query {
-  translations: [Translation]
+  questions: [Question]
   answers: [Answer]
   classrooms: [Classroom]
 }
 
 type Mutation {
-  addTranslationGroup(name: String!): TranslationGroup
-  addTranslation(original: String!, classroomId: String!): Translation
-  updateTranslation(id: String!, value: String): Translation
-  addAnswer(translationId: ID!, value: String!): MutationResponse
+  addQuestion(original: String!, classroomId: String!): Question
+  updateQuestion(id: String!, value: String): Question
+  addAnswer(questionId: ID!, value: String!): MutationResponse
   addClassroom(name: String!): Classroom
 }
 

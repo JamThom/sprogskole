@@ -1,12 +1,16 @@
 import { useQuery } from '@apollo/client';
-import { Classroom } from './types/queries';
+import { Classroom } from './query-types';
 import { GET_CLASSROOMS } from './queries';
 
 const useGetClassrooms = () => {
 
-    const { data, loading, error } = useQuery<Classroom[]>(GET_CLASSROOMS);
+    const { data, loading, error } = useQuery<{ classrooms: Classroom[] }>(GET_CLASSROOMS);
 
-    return { data, loading, error };
+    return {
+        classrooms: data?.classrooms,
+        loading,
+        error
+    };
 };
 
 export default useGetClassrooms;

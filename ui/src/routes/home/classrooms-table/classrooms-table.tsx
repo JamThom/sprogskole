@@ -1,4 +1,4 @@
-import { Classroom } from "@/api/types/queries";
+import { Classroom } from "@/api/query-types";
 import { Table } from "@chakra-ui/react";
 import { ReactNode, useMemo } from "react";
 import {
