@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "src": "api/package.json",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["api/src/**"]
+      }
+    },
+    {
+      "src": "ui/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "ui/build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/src/index.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/ui/$1"
+    }
+  ]
+}
