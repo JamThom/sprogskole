@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/server",
-    "dev": "ts-node-dev --transpile-only --no-notify src/server.ts"
+    "start": "node dist/index",
+    "dev": "ts-node-dev --transpile-only --no-notify src/index.ts",
+    "build": "tsc --project tsconfig.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@graphql-tools/schema": "^10.0.8",
     "@prisma/client": "^5.22.0",
     "cors": "^2.8.5",
     "express": "^4.21.1",
@@ -21,7 +21,6 @@
     "graphql-import": "^1.0.2"
   },
   "devDependencies": {
-    "@graphql-tools/graphql-file-loader": "^8.0.3",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.9.1",
@@ -35,6 +34,6 @@
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   }
 }
