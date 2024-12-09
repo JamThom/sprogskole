@@ -4,8 +4,8 @@ import prisma from "../../client/client";
 import { Classroom } from "@prisma/client";
 
 const Query = {
-  classrooms: async () => {
-    return await prisma.classroom.findMany();
+  classrooms: async (): AsyncResponse<Classroom> => {
+    return await makeSuccessfulResponse(prisma.classroom.findMany());
   },
 };
 

@@ -1,5 +1,7 @@
-import { AddQuestionArgs } from "@/types/resolvers";
+import { makeErrorResponse, makeSuccessfulResponse } from "@/utils/response-helpers";
 import prisma from "../../client/client";
+import { AsyncResponse } from "@/types/types";
+import { Question } from "@prisma/client";
 
 const doesQuestionExist = async (question: string) => {
   const existingQuestion = await prisma.question.findFirst({
@@ -11,17 +13,21 @@ const doesQuestionExist = async (question: string) => {
 };
 
 const Query = {
-  questions: async () => {
+  questions: async (): AsyncResponse<Question[]> => {
     const questions = await prisma.question.findMany();
     return questions;
   }
 };
 
 const Mutation = {
-  addQuestion: async ({ question, correctAnswer, classroomId }: AddQuestionArgs) => {
+  addQuestion: async ({ question, correctAnswer, classroomId }: {
+    question: string;
+    correctAnswer: string;
+    classroomId: string;
+  }): AsyncResponse<Question> => {
     const questionExists = await doesQuestionExist(question);
     if (questionExists) {
-      return new Error('Question already exists');
+      return makeErrorResponse(new Error('Question already exists'));
     }
 
     const newQuestion = await prisma.question.create({
@@ -35,7 +41,7 @@ const Mutation = {
         }
       },
     });
-    return newQuestion;
+    return makeSuccessfulResponse(newQuestion);
   },
 };
 

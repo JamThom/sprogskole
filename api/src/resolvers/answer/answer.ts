@@ -1,6 +1,7 @@
-import { AsyncResponse, Resolver } from "../../types/types";
+import { AsyncResponse } from "../../types/types";
 import prisma from "../../client/client";
 import { Answer } from "@prisma/client";
+import { makeSuccessfulResponse } from "@/utils/response-helpers";
 
 const Mutation = {
     async addAnswer (questionId: string, value: string): AsyncResponse<boolean> {
@@ -38,10 +39,7 @@ const Mutation = {
 const Query = {
     async answers (): AsyncResponse<Answer[]> {
         const answers = await prisma.answer.findMany();
-        return {
-            success: true,
-            data: answers,
-        };
+        return makeSuccessfulResponse(answers);
     }
 }
 
